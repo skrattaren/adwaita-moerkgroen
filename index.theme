@@ -1,0 +1,10 @@
+[X-GNOME-Metatheme]
+Name=Adwaita Dark Green
+Type=X-GNOME-Metatheme
+Comment=There is only one (now darker and more green)
+Encoding=UTF-8
+GtkTheme=Adwaita-Dark-Green
+MetacityTheme=Adwaita-Dark-Green
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24
