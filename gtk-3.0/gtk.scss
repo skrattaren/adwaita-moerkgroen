@@ -1,0 +1,581 @@
+// General guidelines:
+// - very unlikely you want to edit something else than _common.scss
+// - keep the number of defined colors to a minimum, use the color blending functions if
+//   you need a subtle shade
+// - if you need to inverse a color function use the @if directive to match for dark $variant
+
+$variant: 'light';
+
+// Import the default colours
+@import 'colors';
+
+// Override some colours
+$base_color: #C6C6C6;
+$bg_color: #C6C6C6;
+$fg_color: #161616;
+$selected_bg_color: #5E7F3E;
+$selected_borders_color: darken($selected_bg_color, 30%);
+$borders_color: darken($bg_color,30%);
+$borders_edge: transparentize(lighten($bg_color, 30%), 0.9);
+$link_color: darken($selected_bg_color,10%);
+$link_visited_color: darken($selected_bg_color,20%);
+$top_hilight: $borders_edge;
+
+$scrollbar_bg_color: darken($bg_color, 7%);
+
+$sidebar_bg_color: darken($bg_color,5%);
+
+//insensitive state derived colors
+$insensitive_fg_color: mix($fg_color, $bg_color, 50%);
+$insensitive_bg_color: mix($bg_color, $base_color, 60%);
+$insensitive_borders_color: $borders_color;
+
+//colors for the backdrop state, derived from the main colors.
+$backdrop_base_color: darken($base_color, 1%);
+$backdrop_text_color: mix($text_color, $backdrop_base_color, 80%);
+$backdrop_bg_color: $bg_color;
+$backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%);
+$backdrop_insensitive_color: darken($backdrop_bg_color, 15%);
+$backdrop_selected_fg_color: $selected_fg_color;
+$backdrop_selected_bg_color: desaturate($selected_bg_color,100%);
+$backdrop_borders_color: mix($borders_color, $bg_color, 90%);
+$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
+$backdrop_sidebar_bg_color: darken($backdrop_bg_color,5%);
+
+$backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%);
+
+
+// Add our own colours
+$text_input_color: #F0F0F0;
+$backdrop_text_input_color: darken($text_input_color, 1%);
+$bg_dark_color: #3D3D3D;
+$fg_dark_color: #dddddd;
+$insensitive_dark_fg_color: mix($fg_dark_color, $bg_dark_color, 50%);
+$titlebar_highlight: #4c4c4c;
+$header_button_raised_gradient_color_a: lighten($bg_dark_color, 10%);
+$header_button_checked: darken($bg_dark_color, 5%);
+$header_button_border: darken($bg_dark_color, 5%);
+$header_button_border_unfocused: darken($bg_dark_color, 5%);
+$menu_fg_dark_color: #cccccc;
+$focused_entry_outer:  transparentize($selected_bg_color, 0.45);
+$bg_gradient_1: lighten($bg_color, 20%);
+$bg_gradient_2: lighten($bg_color, 10%);
+$bg_gradient_3: lighten($bg_color, 5%);
+$bg_prelight: $bg_gradient_1;
+$selected_bg_color_hover: lighten($selected_bg_color, 10%);
+$selected_bg_color_shade: darken($selected_bg_color, 10%);
+$selected_bg_border: darken($selected_bg_color, 30%);
+$title_fg: #fff;
+$header_separator: lighten($bg_dark_color, 10%);
+$fg_color_emphasis: darken($fg_color, 50%);
+$fg_color_de_emphasis: lighten($fg_color, 20%);
+$unfocused_fg_color: $backdrop_fg_color;
+$unfocused_insensitive_fg_color: lighten($insensitive_fg_color, 20%);
+$transparent_outline: #383436;
+
+// Import the default widgets
+@import 'drawing';
+// Style everything
+@import 'common';
+//Export default colours
+@import 'colors-public';
+
+//Override some exported colours
+@define-color wm_title #{"" + $bg_dark_color};
+@define-color wm_unfocused_title #{"" + $bg_dark_color};
+@define-color wm_highlight shade(#{"" + $bg_dark_color}, 1.03);
+@define-color wm_borders_edge #{"" + $bg_dark_color};
+
+@define-color wm_bg_a shade(#{$bg_dark_color}, 1.2);
+@define-color wm_bg_b #{$bg_dark_color};
+
+@define-color wm_button_hover_color_a shade(#{$bg_dark_color}, 1.3);
+@define-color wm_button_hover_color_b #{$bg_dark_color};
+@define-color wm_button_active_color_a shade(#{$bg_dark_color}, 0.85);
+@define-color wm_button_active_color_b shade(#{$bg_dark_color}, 0.89);
+@define-color wm_button_active_color_c shade(#{$bg_dark_color}, 0.9);
+
+
+// And now do our own overrides of styling
+*:insensitive {
+  -gtk-image-effect: highlight;
+}
+
+ /***************
+ * Header bars *
+ ***************/
+.header-bar,
+.titlebar, GtkApplicationWindow.fullscreen {
+    color: $title_fg;
+    border-width: 0 0 1px;
+    border-style: solid;
+    background-image: linear-gradient(to bottom, $bg_dark_color, lighten($bg_dark_color, 3%) 20%, $bg_dark_color 45%);
+    border-color: shade($bg_dark_color, 0.90);
+    box-shadow: inset 0 2px $titlebar_highlight, inset 0 1px $header_button_border;
+    background-color: $bg_dark_color;
+}
+.header-bar:backdrop,
+.titlebar:backdrop, GtkApplicationWindow.fullscreen:backdrop {
+    color: $fg_dark_color;
+    box-shadow: none;
+    background-color: $bg_dark_color;
+    background-image: none;
+    border-color: darken($bg_dark_color, 10%);
+}
+
+/* this is the default titlebar that is added by GTK
+ * when client-side decorations are in use and the application
+ * did not set a custom titlebar.
+ */
+.header-bar .separator,
+.titlebar .separator {
+    border-width: 1px;
+    border-style: solid;
+    border-image: none;
+    color: $header_separator;
+
+}
+ 
+.titlebar.default-decoration {
+    border: none;
+    box-shadow: none;
+}
+ 
+.titlebar .title {
+    font: Bold 11;
+    background: none;
+    color: $title_fg;
+}
+
+.titlebar .title:backdrop {
+	color: $fg_dark_color;
+}
+.header-bar .button.titlebutton:active,
+  .titlebar .button.titlebutton:active,
+  .header-bar .button.titlebutton:checked,
+  .titlebar .button.titlebutton:checked
+  
+.header-bar .button:active,
+.header-bar .button.titlebutton:active,
+.titlebar .button.titlebutton:active,
+.header-bar .button:checked,
+.header-bar .button.titlebutton:checked,
+.titlebar .button.titlebutton:checked,
+.header-bar .button:active:hover,
+.header-bar .button.titlebutton:active:hover,
+.titlebar .button.titlebutton:active:hover,
+.header-bar .button:checked:hover,
+.header-bar .button.titlebutton:checked:hover,
+.titlebar .button.titlebutton:checked:hover,
+.header-bar .button,
+.header-bar .titlebutton.button,
+.titlebar .titlebutton.button {
+  color: $fg_dark_color;
+  background-image: linear-gradient(to bottom, $header_button_raised_gradient_color_a, $bg_dark_color);
+  text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+  icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+  border-color: $header_button_border;
+  outline-color: $header_button_raised_gradient_color_a;
+  box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a;
+}
+.header-bar .titlebutton.button,
+.titlebar .titlebutton.button {
+	border-color: transparent;
+	box-shadow: none;
+	background-image: none;
+}
+.header-bar .button:insensitive,
+.header-bar .titlebutton.button:insensitive,
+.titlebar .titlebutton.button:insensitive,
+.header-bar .button:insensitive:backdrop,
+.header-bar .titlebutton.button:insensitive:backdrop,
+.titlebar .titlebutton.button:insensitive:backdrop {
+    color: $insensitive_dark_fg_color;
+    background-image: none;
+    box-shadow: none;
+}
+
+.header-bar .button:hover,
+.header-bar .button.titlebutton:hover,
+.titlebar .button.titlebutton:hover {
+    color: shade($fg_dark_color, 1.3);
+    outline-color: $header_button_raised_gradient_color_a;
+    border-color: $header_button_border;
+    background-image: linear-gradient(to bottom, shade($header_button_raised_gradient_color_a, 1.1), shade($bg_dark_color, 1.1));
+    text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+    icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+    box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a; }
+  
+.header-bar .button:active,
+.header-bar .button.titlebutton:active,
+.titlebar .button.titlebutton:active,
+.header-bar .button:checked,
+.header-bar .button.titlebutton:checked,
+.titlebar .button.titlebutton:checked,
+.header-bar .button:active:hover,
+.header-bar .button.titlebutton:active:hover,
+.titlebar .button.titlebutton:active:hover,
+.header-bar .button:checked:hover,
+.header-bar .button.titlebutton:checked:hover,
+.titlebar .button.titlebutton:checked:hover {
+    color: $title_fg;
+    background-image: linear-gradient(to bottom, $bg_dark_color, $header_button_checked);
+}
+.header-bar .button:backdrop,
+.header-bar .button.titlebutton:backdrop,
+.titlebar .button.titlebutton:backdrop {
+  background-image: none;
+  background-color: $bg_dark_color;
+  border-color: transparent;
+  box-shadow:none;
+  text-shadow: none;
+  icon-shadow: none;
+  color: $fg_dark_color;
+}
+.header-bar .button:backdrop {
+    border-color: $header_button_border_unfocused
+}
+
+.header-bar .button:active:backdrop,
+.header-bar .button.titlebutton:active:backdrop,
+.titlebar .button.titlebutton:active:backdrop,
+.header-bar .button:checked:backdrop,
+.header-bar .button.titlebutton:checked:backdrop,
+.titlebar .button.titlebutton:checked:backdrop,
+.header-bar .button:active:hover:backdrop,
+.header-bar .button.titlebutton:active:hover:backdrop,
+.titlebar .button.titlebutton:active:hover:backdrop,
+.header-bar .button:checked:hover:backdrop,
+.header-bar .button.titlebutton:checked:hover:backdrop,
+.titlebar .button.titlebutton:checked:hover:backdrop {
+    color: $fg_dark_color;
+    background-image: none;
+    background-color: $header_button_checked;
+    box-shadow:none;
+    text-shadow: none;
+    icon-shadow: none;
+}
+.header-bar .suggested-action.button,
+.header-bar .suggested-action.titlebutton.button,
+.titlebar .suggested-action.titlebutton.button {
+  color: $title_fg;
+  background-color: mix($selected_bg_color, $bg_dark_color, 80%);
+  background-image: linear-gradient(to bottom, mix($selected_bg_color, $header_button_raised_gradient_color_a, 80%), mix($selected_bg_color, $bg_dark_color, 80%));
+  text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+  icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+  border-color: mix($selected_bg_color, $header_button_border, 30%);
+  outline-color: $header_button_raised_gradient_color_a;
+  box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a;
+}
+
+.header-bar .suggested-action.button:backdrop,
+.header-bar .suggested-action.titlebutton.button:backdrop,
+.titlebar .suggested-action.titlebutton.button:backdrop {
+  background-image: none;
+  text-shadow: none;
+  icon-shadow: none;
+  border-color: transparent;
+  outline-color: transparent;
+  box-shadow: none;
+}
+
+.header-bar .suggested-action.button:hover,
+.header-bar .suggested-action.button.titlebutton:hover,
+.titlebar .suggested-action.button.titlebutton:hover {
+    color: shade($fg_dark_color, 1.3);
+    outline-color: $header_button_raised_gradient_color_a;
+    border-color: $header_button_border;
+    background-image: linear-gradient(to bottom, shade(mix($selected_bg_color, $header_button_raised_gradient_color_a, 80%), 1.1), shade(mix($selected_bg_color,$bg_dark_color,80%), 1.1));
+    text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+    icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+    box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a; }
+.header-bar .suggested-action.titlebutton.button:backdrop:insensitive,
+.titlebar .suggested-action.titlebutton.button:backdrop:insensitive,
+.header-bar .suggested-action.button:backdrop:insensitive,
+.titlebar .suggested-action.button:backdrop:insensitive {
+    color: mix($fg_dark_color, $bg_dark_color, 60%);
+    background-image: none;
+    background-color: $bg_dark_color;
+    border-color: transparent;
+}
+.header-bar .suggested-action.titlebutton.button:insensitive,
+.titlebar .suggested-action.titlebutton.button:insensitive,
+.header-bar .suggested-action.button:insensitive,
+.titlebar .suggested-action.button:insensitive {
+    color: mix($fg_dark_color, $bg_dark_color, 60%);
+    background-image: linear-gradient(to bottom, $header_button_raised_gradient_color_a, $bg_dark_color);
+    background-color: $bg_dark_color;
+    border-color: transparent;
+}
+
+.titlebar .header-bar-separator, .titlebar > GtkBox > .separator.vertical,
+GtkPlacesSidebar.sidebar .view .titlebar > GtkBox > .vertical.separator:backdrop,
+.header-bar .header-bar-separator,
+.header-bar > GtkBox > .separator.vertical,
+GtkPlacesSidebar.sidebar .view .header-bar > GtkBox > .vertical.separator:backdrop {
+    border-image: linear-gradient(to bottom, transparentize($header_separator, 0), $header_separator 30%, $header_separator 70%, transparentize($header_separator, 0) 100%) 0 1/0 1px stretch;
+}
+.titlebar .header-bar-separator:backdrop, .titlebar > GtkBox > .separator.vertical:backdrop,
+.header-bar .header-bar-separator:backdrop,
+.header-bar > GtkBox > .separator.vertical:backdrop {
+    border-image: linear-gradient(to bottom, transparentize($header_separator, 0.5)) 0 1/1px 1px;
+}
+
+column-header .button, column-header .header-bar .button.titlebutton, .header-bar column-header .button.titlebutton,
+column-header .titlebar .button.titlebutton,
+.titlebar column-header .button.titlebutton {
+  color: $fg_color;
+  background-color: $bg_gradient_2;}
+  column-header .button:hover, column-header .header-bar .button.titlebutton:hover, .header-bar column-header .button.titlebutton:hover,
+  column-header .titlebar .button.titlebutton:hover,
+  .titlebar column-header .button.titlebutton:hover {
+    color: $fg_color_emphasis; }
+
+// Somehow, our notebook tabs don't appear to be classed ".label",
+// so we have to bodge it with GtkLabel directly
+.notebook {
+  // Through me you go to the grief wracked city;
+  // Through me you go to everlasting pain;
+  // Through me you go a pass among lost souls.
+  // ...
+  // Abandon all hope — Ye Who Enter Here
+  tab {
+    GtkLabel { //tab text
+      padding: 0 2px; // needed for a nicer focus ring
+      font-weight: bold;
+      color: $insensitive_fg_color;
+      &:backdrop, &.prelight-page:backdrop {
+        color: mix($backdrop_fg_color, $backdrop_insensitive_color, 50%);
+      }
+    }
+    .prelight-page GtkLabel, GtkLabel.prelight-page {
+      // prelight tab text
+      color: mix($fg_color, $insensitive_fg_color, 50%);
+      &:backdrop { // FIXME, it's the same as .label:backdrop up here
+        color: mix($backdrop_fg_color, $backdrop_insensitive_color, 50%);
+      }
+    }
+    .active-page GtkLabel, GtkLabel.active-page {
+      // active tab text
+      color: $fg_color;
+      &:backdrop { color: $backdrop_fg_color; }
+    }
+  }
+}
+
+.popover {
+  background-color: $bg_color;
+}
+.popover .menuitem.button { border: none; box-shadow: none; outline: none; }
+.menu {
+  background-color: $bg_color;
+  .csd & {
+    border: 1px solid $borders_color;
+  }
+}
+.background {
+  background-color: $bg_color;
+}
+
+.entry, .linked.vertical > .entry, .linked.vertical > .entry:first-child, .linked.vertical > .entry:last-child {
+  background-image: entry_gradient($text_input_color);
+  background-color: $text_input_color;
+  
+  &:focus { background-image: entry_gradient($text_input_color); }
+  &:insensitive { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
+  &:backdrop { background-image: none; background-color: $backdrop_text_input_color; }
+  &:backdrop:insensitive { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
+}
+GtkPaned {
+ border: 1px solid $borders_color;
+}
+GtkPlacesSidebar.sidebar .view {
+  color: $fg_color;
+  background-color: transparent;
+}
+
+.view, .list, .list-row, .list-row.button {
+  color: $text_color;
+  background-color: $text_input_color;
+  &:backdrop, &:backdrop:hover {
+    color: $backdrop_text_color;
+    background-color: $backdrop_text_input_color;
+  }
+  &:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+  &:hover {
+    background-color: mix($fg_color, $text_input_color, 5%);
+  }
+  &:active {
+    box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8);
+  }
+  &:selected {
+    &:active { box-shadow: inset 0 2px 3px -1px transparentize(black, 0.5); }
+    &:hover {
+      background-color: mix($fg_color, $selected_bg_color, 10%);
+    }
+    &:backdrop { background-color: $selected_bg_color; }
+  }
+}
+.list-row {
+  // Set sidebar items back to something reasonable
+  &.sidebar-item {
+    background-color: $sidebar_bg_color;
+    border-color: $borders_color;
+    &:backdrop, &:backdrop:hover {
+      background-color: $backdrop_sidebar_bg_color;
+      border-color: $backdrop_borders_color;
+    }
+    // let's take care of background colors
+    &:hover {
+      background-color: mix($fg_color, $base_color, 5%);
+    }
+    &:active {
+      box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8);
+    }
+    &:selected {
+      background-color: $selected_bg_color;
+      &:active { box-shadow: inset 0 2px 3px -1px transparentize(black, 0.5); }
+      &:hover {
+        background-color: mix($fg_color, $selected_bg_color, 10%);
+      }
+      &:backdrop { background-color: $selected_bg_color; }
+    }
+  }
+}
+.sidebar .list {
+    background-color: $sidebar_bg_color;
+    border-color: $borders_color;
+    &:backdrop {
+      background-color: $backdrop_sidebar_bg_color;
+      border-color: $backdrop_borders_color;
+    }
+}
+
+/*.list .list-row.button {
+  &:hover, &:backdrop:insensitive {
+    background-color: rgba(0,0,0,0);
+  }
+}*/
+
+
+/*GtkPlacesSidebar .separator { color: $insensitive_fg_color; }*/
+
+
+// Fix the rubberband background after we gave lists and views a lighter background
+.view.rubberband {
+  background-color: transparentize($selected_bg_color,0.8);
+}
+.menubar {
+  background-color: $bg_dark_color;
+  color: $menu_fg_dark_color;
+  box-shadow: inset 0 -1px transparentize(black, 0.9);
+  &:backdrop { background-color: $bg_dark_color; }
+}
+.menubar, .header-bar {
+  & .menu { background-color: $bg_dark_color;
+  color: $menu_fg_dark_color; border-color: $header_button_border; }
+  & > .menuitem {
+    &:hover { //Seems like it :hover even with keyboard focus
+      box-shadow: inset 0 -3px $selected_bg_color;
+      color: $fg_dark_color;
+    }
+    &:insensitive {
+      color: $insensitive_fg_color;
+      box-shadow: none;
+    }
+  }
+}
+.tweak-group .button.list-row, .tweak-categories .tweak-category.list-row {
+  color: $fg_color;
+  background-color: $bg_color;
+  &:hover {
+    background-color: mix($fg_color, $base_color, 5%);
+  }
+  &:backdrop { background-color: $backdrop_bg_color }
+  &:selected {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    &:hover {
+      background-color: mix($fg_color, $selected_bg_color, 10%);
+    }
+  }
+}
+.floating-bar {
+  opacity: 0.9;
+  color: $text_color;
+  background-color: $text_input_color;
+  border: 1px solid $borders_color;
+
+  @each $tb,$tb_corner in ('top','bottom'),
+                          ('bottom','top') {
+    @each $lr,$lr_corner in ('left','right'),
+                 ('right','left') {
+      &.#{$tb}.#{$lr} {
+        border-#{$tb_corner}-#{$lr_corner}-radius: 3px;
+        border-#{$tb}-width: 0;
+        border-#{$lr}-width: 0;
+      }
+    }
+  }
+}
+.menu .menuitem.check, .menu .menuitem.radio {
+  color: $fg_dark_color;
+}
+
+
+/* Fix Meld dialog buttons and try not to break anything else */
+.message-dialog.csd .dialog-action-area .button {
+  border-bottom-style: solid;
+  &:last-child {
+    border-right-style: solid;
+    border-top-right-radius: 7px; }
+  &:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 7px; }
+  &:hover, &:backdrop { border-bottom-style: solid; }
+}
+
+/* And put "linked" buttons back to Adwaita style */
+.message-dialog.csd .dialog-action-area.linked .button {
+  border-bottom-style: none;
+  &:last-child {
+    border-right-style: none;
+    border-top-right-radius: 0; }
+  &:first-child {
+    border-left-style: none;
+    border-top-left-radius: 0; }
+  &:hover, &:backdrop { border-bottom-style: none; }
+}
+
+/* Fix tree view progress bars */
+GtkTreeView.view {
+  &.progressbar { // progress bar in treeviews
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    
+    &:selected {
+      color: darken($selected_bg_color,20%);
+      &:backdrop {
+        color: darken($selected_bg_color,20%);
+      }
+    }
+
+    &:backdrop {
+      @if $variant == 'light' { color: $backdrop_base_color; }
+      @else { border-color: $backdrop_base_color; }
+      background-image: none;
+      box-shadow: none;
+    }
+  }
+}
+
+/*
+ * Fix text views that don't specify a class.
+ * Happens mainly in Meld when viewing single files
+ */
+GtkTextView {
+    background-color: #eee
+}
