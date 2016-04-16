@@ -22,6 +22,7 @@ style "default"
         GtkWidget::tooltip-radius       = 3
         GtkWidget::tooltip-alpha        = 235
         GtkWidget::new-tooltip-style    = 1 #for compatibility
+	GtkWidget::link-color           = @selected_bg_color
 
 	GtkSeparatorMenuItem::horizontal-padding = 3
 	GtkSeparatorMenuItem::wide-separators = 1
@@ -707,6 +708,7 @@ style "menu"
 	ythickness	= 0
 
 	GtkMenuItem::arrow-scaling	= 0.4
+	fg[NORMAL]          = @fg_dark_color
 	fg[PRELIGHT]        = @selected_fg_color
 	fg[ACTIVE]          = @selected_fg_color
 	fg[SELECTED]        = @selected_fg_color
@@ -751,6 +753,9 @@ style "menu_item"
 	bg[PRELIGHT]	= @selected_bg_color
 	fg[PRELIGHT]	= @selected_fg_color
 	text[PRELIGHT]	= @selected_fg_color
+	#HACK: Gimp and Inkscape are showing bevelling, but LibreOffice isn't
+	# So set a dark colour to let the bevel be our colour
+	fg[INSENSITIVE]     = @bg_dark_color
 
 	engine "pixmap"
 	{
@@ -932,7 +937,7 @@ style "menubar_item"
 	xthickness	= 2
 	ythickness	= 3
 	bg[PRELIGHT]	= @selected_fg_color
-	fg[PRELIGHT]	= @text_color
+	fg[PRELIGHT]	= @selected_bg_color
 }
 
 style "button"
@@ -2391,3 +2396,15 @@ widget "*openoffice-toplevel*GtkEntry"        style "libreoffice_entry"
 widget "*openoffice-toplevel*GtkSpinButton"   style "libreoffice_spinbutton_entry"
 widget "*libreoffice-toplevel*GtkEntry"       style "libreoffice_entry"
 widget "*libreoffice-toplevel*GtkSpinButton"  style "libreoffice_spinbutton_entry"
+
+
+# For menus where the text color is used instead of the fg color.
+style "menuitem_text_is_fg_color_workaround" {
+
+	text[NORMAL]		= shade (0.97, @base_color)
+	text[PRELIGHT]		= @selected_fg_color
+	text[SELECTED]		= @selected_fg_color
+	text[ACTIVE]		= @fg_color
+	text[INSENSITIVE]	= darker (@bg_color)
+}
+widget "*.gtk-combobox-popup-menu.*"	style "menuitem_text_is_fg_color_workaround"
