@@ -480,7 +480,7 @@ GtkPlacesSidebar.sidebar .view {
   & > .menuitem {
     &:hover { //Seems like it :hover even with keyboard focus
       box-shadow: inset 0 -3px $selected_bg_color;
-      color: $fg_dark_color;
+      color: $selected_bg_color
     }
     &:insensitive {
       color: $insensitive_fg_color;
@@ -497,7 +497,7 @@ GtkPlacesSidebar.sidebar .view {
   &:backdrop { background-color: $backdrop_bg_color }
   &:selected {
     background-color: $selected_bg_color;
-    color: $selected_fg_color;
+    color: lighten($selected_fg_color, 20%);
     &:hover {
       background-color: mix($fg_color, $selected_bg_color, 10%);
     }

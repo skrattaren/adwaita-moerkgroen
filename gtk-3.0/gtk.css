@@ -5123,7 +5123,7 @@ GtkPlacesSidebar.sidebar .view {
   border-color: #303030; }
 .menubar > .menuitem:hover, .header-bar > .menuitem:hover {
   box-shadow: inset 0 -3px #5E7F3E;
-  color: #dddddd; }
+  color: #5E7F3E; }
 .menubar > .menuitem:insensitive, .header-bar > .menuitem:insensitive {
   color: #6e6e6e;
   box-shadow: none; }
@@ -5137,7 +5137,7 @@ GtkPlacesSidebar.sidebar .view {
     background-color: #C6C6C6; }
   .tweak-group .button.list-row:selected, .tweak-categories .tweak-category.list-row:selected {
     background-color: #5E7F3E;
-    color: #ffffff; }
+    color: white; }
     .tweak-group .button.list-row:selected:hover, .tweak-categories .tweak-category.list-row:selected:hover {
       background-color: #57753a; }
 
