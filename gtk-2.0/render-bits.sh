@@ -12,5 +12,5 @@ do
 		then mkdir $DIR; 
 	fi
 	ID=`echo $filename | tr '/' '_'`
-	$INKSCAPE $SVG -i $ID -e $filename.png
+	$INKSCAPE $SVG -i $ID -e $filename.png -b "#C6C6C6"
 done

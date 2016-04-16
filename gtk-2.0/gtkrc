@@ -1101,7 +1101,7 @@ style "notebook_entry"
 		detail			= "entry"
                 state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/notebook-entry-border.png"
+		file			= "Entry/entry-border.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1111,7 +1111,7 @@ style "notebook_entry"
 		detail			= "entry"
                 state                   = INSENSITIVE
 		shadow			= IN
-		file			= "Entry/notebook-entry-border-disabled.png"
+		file			= "Entry/entry-border-disabled.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1120,7 +1120,7 @@ style "notebook_entry"
 		function		= SHADOW
 		detail			= "entry"
 	        state                   = ACTIVE
-		file			= "Entry/notebook-entry-border-active.png"
+		file			= "Entry/entry-border-active.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1641,7 +1641,7 @@ style "libreoffice_entry"
 		detail			= "entry"
                 state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/entry-border-bg-solid.png"
+		file			= "Entry/entry-border.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1650,7 +1650,7 @@ style "libreoffice_entry"
 		function		= SHADOW
 		detail			= "entry"
                 state                   = ACTIVE
-		file			= "Entry/entry-border-active-bg-solid.png"
+		file			= "Entry/entry-border-active.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
         }
@@ -1667,7 +1667,7 @@ style "libreoffice_spinbutton_entry"
 		detail			= "entry"
 	        state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/entry-border-bg-solid-spin.png"
+		file			= "Entry/entry-border.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1676,7 +1676,7 @@ style "libreoffice_spinbutton_entry"
 		function		= SHADOW
 		detail			= "entry"
 	        state                   = ACTIVE
-		file			= "Entry/entry-border-active-bg-solid-spin.png"
+		file			= "Entry/entry-border-active.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1720,7 +1720,7 @@ style "standalone_entry"
 		detail			= "entry"
                 state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/entry-border-bg-solid.png"
+		file			= "Entry/entry-border.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1729,7 +1729,7 @@ style "standalone_entry"
 		function		= SHADOW
 		detail			= "entry"
                 state                   = ACTIVE
-		file			= "Entry/entry-border-active-bg-solid.png"
+		file			= "Entry/entry-border-active.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -2255,7 +2255,7 @@ style "inline_toolbar"
 
 style "notebook_viewport"
 {
-        bg[NORMAL]   = @base_color
+        bg[NORMAL]   = @bg_color
 }
 
 style "tooltips"
