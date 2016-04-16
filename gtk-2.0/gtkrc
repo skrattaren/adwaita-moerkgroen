@@ -1,6 +1,7 @@
 # Bridge | ScionicSpectre
 
-gtk-color-scheme	= "base_color:#FFFFFF\nfg_color:#2E3436\ntooltip_fg_color:#FFFFFF\nselected_bg_color:#4A90D9\nselected_fg_color:#FFFFFF\ntext_color:#313739\nbg_color:#EDEDED\ninsensitive_bg_color:#F4F4F2\ntooltip_bg_color:#343434"
+gtk-color-scheme	= "base_color:#F0F0F0\nfg_color:#363636\ntooltip_fg_color:#FFFFFF\nselected_bg_color:#5E7F3E\nselected_fg_color:#FFFFFF\ntext_color:#242424\nbg_color:#C6C6C6\ninsensitive_bg_color:#c6c6c6\ntooltip_bg_color:#080808"
+gtk-color-scheme	= "bg_dark_color:#3D3D3D\nfg_dark_color:#cbcdcc\ntext_dark_color:#dcddde"
 
 gtk-auto-mnemonics              = 1
 gtk-primary-button-warps-slider = 1
@@ -675,8 +676,12 @@ style "scrollbar"
 
 style "menubar"
 {
-	bg[PRELIGHT]	= "#FFF"
-	fg[SELECTED]	= @text_color
+	fg[NORMAL]          = @fg_dark_color
+	fg[PRELIGHT]        = @selected_fg_color
+	fg[ACTIVE]          = @selected_fg_color
+	fg[SELECTED]        = @selected_fg_color
+
+	bg[NORMAL]          = @bg_dark_color
 
 	xthickness	= 0
 	ythickness	= 0
@@ -702,10 +707,11 @@ style "menu"
 	ythickness	= 0
 
 	GtkMenuItem::arrow-scaling	= 0.4
+	fg[PRELIGHT]        = @selected_fg_color
+	fg[ACTIVE]          = @selected_fg_color
+	fg[SELECTED]        = @selected_fg_color
 
-	bg[NORMAL]	= shade (1.08, @bg_color)
-        bg[INSENSITIVE] = @base_color
-        bg[PRELIGHT]    = @base_color
+	bg[NORMAL]			= @bg_dark_color
 
 	engine "pixmap"	# For menus that use horizontal lines rather than gtkseparator
 	{
@@ -741,6 +747,7 @@ style "menu_item"
         # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
         bg[SELECTED]    = @selected_fg_color
 
+	fg[NORMAL]	= @fg_dark_color
 	bg[PRELIGHT]	= @selected_bg_color
 	fg[PRELIGHT]	= @selected_fg_color
 	text[PRELIGHT]	= @selected_fg_color
@@ -1034,7 +1041,7 @@ style "entry"
 		detail			= "entry"
                 state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/entry-border-bg.png"
+		file			= "Entry/entry-border.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1044,7 +1051,7 @@ style "entry"
 		detail			= "entry"
                 state                   = INSENSITIVE
 		shadow			= IN
-		file			= "Entry/entry-border-disabled-bg.png"
+		file			= "Entry/entry-border-disabled.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1053,7 +1060,7 @@ style "entry"
 		function		= SHADOW
 		detail			= "entry"
                 state                   = ACTIVE
-		file			= "Entry/entry-border-active-bg.png"
+		file			= "Entry/entry-border-active.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1094,7 +1101,7 @@ style "notebook_entry"
 		detail			= "entry"
                 state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/notebook-entry-border-bg.png"
+		file			= "Entry/notebook-entry-border.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1104,7 +1111,7 @@ style "notebook_entry"
 		detail			= "entry"
                 state                   = INSENSITIVE
 		shadow			= IN
-		file			= "Entry/notebook-entry-border-disabled-bg.png"
+		file			= "Entry/notebook-entry-border-disabled.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1113,7 +1120,7 @@ style "notebook_entry"
 		function		= SHADOW
 		detail			= "entry"
 	        state                   = ACTIVE
-		file			= "Entry/notebook-entry-border-active-bg.png"
+		file			= "Entry/notebook-entry-border-active.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
 	}
@@ -1157,7 +1164,7 @@ style "combobox_entry"
 		detail			= "entry"
                 state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/combo-entry-border-bg.png"
+		file			= "Entry/combo-entry-border.png"
 		border			= { 4, 4, 4, 4 }
 		stretch			= TRUE
                 direction               = LTR
@@ -1168,7 +1175,7 @@ style "combobox_entry"
 		detail			= "entry"
                 state                   = INSENSITIVE
 		shadow			= IN
-		file			= "Entry/combo-entry-border-disabled-bg.png"
+		file			= "Entry/combo-entry-border-disabled.png"
 		border			= { 4, 4, 5, 4 }
 		stretch			= TRUE
                 direction               = LTR
@@ -1178,7 +1185,7 @@ style "combobox_entry"
 		function		= SHADOW
 		detail			= "entry"
                 state                   = ACTIVE
-		file			= "Entry/combo-entry-border-active-bg.png"
+		file			= "Entry/combo-entry-border-active.png"
 		border			= { 4, 4, 5, 4 }
 		stretch			= TRUE
                 direction               = LTR
@@ -1191,7 +1198,7 @@ style "combobox_entry"
 		detail			= "entry"
                 state                   = NORMAL
 		shadow			= IN
-		file			= "Entry/combo-entry-border-rtl-bg.png"
+		file			= "Entry/combo-entry-border-rtl.png"
 		border			= { 4, 4, 5, 4 }
 		stretch			= TRUE
                 direction               = RTL
@@ -1202,7 +1209,7 @@ style "combobox_entry"
 		detail			= "entry"
                 state                   = INSENSITIVE
 		shadow			= IN
-		file			= "Entry/combo-entry-border-disabled-rtl-bg.png"
+		file			= "Entry/combo-entry-border-disabled-rtl.png"
 		border			= { 4, 4, 5, 4 }
 		stretch			= TRUE
                 direction               = RTL
@@ -1212,7 +1219,7 @@ style "combobox_entry"
 		function		= SHADOW
 		detail			= "entry"
                 state                   = ACTIVE
-		file			= "Entry/combo-entry-border-active-rtl-bg.png"
+		file			= "Entry/combo-entry-border-active-rtl.png"
 		border			= { 4, 4, 5, 4 }
 		stretch			= TRUE
                 direction               = RTL
@@ -1740,6 +1747,7 @@ style "standalone_entry"
 
 style "notebook"
 {
+  bg[NORMAL] = @bg_color
 
   xthickness	= 5
   ythickness	= 2
@@ -2273,20 +2281,20 @@ style "eclipse-tooltips"
 # Chromium
 style "chrome-gtk-frame"
 {
-	ChromeGtkFrame::frame-color = @bg_color
-	ChromeGtkFrame::inactive-frame-color = @bg_color
+	ChromeGtkFrame::frame-color = @bg_dark_color
+	ChromeGtkFrame::inactive-frame-color = @bg_dark_color
 
 	ChromeGtkFrame::frame-gradient-size = 16
-	ChromeGtkFrame::frame-gradient-color = shade(1.07, @bg_color)
+	ChromeGtkFrame::frame-gradient-color = shade(1.07, @bg_dark_color)
 
-	ChromeGtkFrame::incognito-frame-color = shade(0.85, @bg_color)
-	ChromeGtkFrame::incognito-inactive-frame-color = @bg_color
+	ChromeGtkFrame::incognito-frame-color = shade(0.85, @bg_dark_color)
+	ChromeGtkFrame::incognito-inactive-frame-color = @bg_dark_color
 
-	ChromeGtkFrame::incognito-frame-gradient-color = @bg_color
+	ChromeGtkFrame::incognito-frame-gradient-color = @bg_dark_color
 
-	ChromeGtkFrame::scrollbar-trough-color = shade(0.912, @bg_color)
-	ChromeGtkFrame::scrollbar-slider-prelight-color = shade(1.04, @bg_color)
-	ChromeGtkFrame::scrollbar-slider-normal-color = @bg_color
+	ChromeGtkFrame::scrollbar-trough-color = shade(0.912, @bg_dark_color)
+	ChromeGtkFrame::scrollbar-slider-prelight-color = shade(1.04, @bg_dark_color)
+	ChromeGtkFrame::scrollbar-slider-normal-color = @bg_dark_color
 }
 
 style "chrome_menu_item"
