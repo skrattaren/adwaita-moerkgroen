@@ -255,6 +255,12 @@ $transparent_outline: #383436;
     text-shadow: none;
     icon-shadow: none;
 }
+.header-bar .titlebutton.button:backdrop:active,
+    .titlebar .titlebutton.button:backdrop:active,
+    .header-bar .titlebutton.button:backdrop:checked,
+    .titlebar .titlebutton.button:backdrop:checked {
+    border-color: $header_button_border_unfocused
+}
 .header-bar .suggested-action.button,
 .header-bar .suggested-action.titlebutton.button,
 .titlebar .suggested-action.titlebutton.button {
