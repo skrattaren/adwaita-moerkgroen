@@ -1074,7 +1074,7 @@ style "entry"
 	        function                = FLAT_BOX
 	        detail                  = "entry_bg"
 	        state                   = NORMAL
-		file			= "Others/null.png"
+		file			= "Entry/entry-border-fill-solid.png"
 		border			= { 0, 0, 0, 0 }
 		stretch			= TRUE
 	}
@@ -1083,7 +1083,7 @@ style "entry"
 	        function                = FLAT_BOX
 	        detail                  = "entry_bg"
 	        state                   = ACTIVE
-		file			= "Others/null.png"
+		file			= "Entry/entry-border-fill-solid.png"
 		border			= { 0, 0, 0, 0 }
 		stretch			= TRUE
 	}
@@ -1134,7 +1134,7 @@ style "notebook_entry"
 	        function                = FLAT_BOX
 	        detail                  = "entry_bg"
 	        state                   = NORMAL
-		file			= "Others/null.png"
+		file			= "Entry/entry-border-fill-solid.png"
 		border			= { 0, 0, 0, 0 }
 		stretch			= TRUE
 	}
@@ -1143,7 +1143,7 @@ style "notebook_entry"
 	        function                = FLAT_BOX
 	        detail                  = "entry_bg"
 	        state                   = ACTIVE
-		file			= "Others/null.png"
+		file			= "Entry/entry-border-fill-solid.png"
 		border			= { 0, 0, 0, 0 }
 		stretch			= TRUE
 	}
