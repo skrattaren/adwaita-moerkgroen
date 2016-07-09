@@ -11,7 +11,7 @@ I find Adwaita too bright, and the Mediterranean series didn't keep up with GTK3
 The Theme
 ---------
 
-Adwaita Dark Green includes GTK2, GTK3 (3.16) and Metacity themes.
+Adwaita Dark Green includes GTK2, GTK3 (3.18) and Metacity themes.
 
 The following screenshots were taken at [revision ecae148f2522](https://dev.ibboard.co.uk/repos/other/Adwaita-Dark-Green/rev/ecae148f2522)
 

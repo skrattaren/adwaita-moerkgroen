@@ -527,6 +527,7 @@ GtkPlacesSidebar.sidebar .view {
 
 
 /* Fix Meld dialog buttons and try not to break anything else */
+/* FIXME GTK3.18 theme update broke this when used with GTK3.16 */
 .message-dialog.csd .dialog-action-area .button {
   border-bottom-style: solid;
   &:last-child {
@@ -578,4 +579,25 @@ GtkTreeView.view {
  */
 GtkTextView {
     background-color: #eee
+}
+
+/*
+ * Fix GTK3.18 change that makes .list-row.button items look like buttons
+ */
+.list-row.button,
+.list-row.button:backdrop,
+.list-row.button:backdrop:active,
+.list-row.button:backdrop:checked,
+.list-row.button:backdrop:insensitive,
+.list-row.button:backdrop:insensitive:active,
+.list-row.button:backdrop:insensitive:checked,
+.list-row.button:insensitive:active,
+.list-row.button:insensitive:checked {
+  // reset button inherited stuff
+  @extend %undecorated_button;
+  background-color: transparentize($base_color,1); // for the transition
+  border-style: none; // I need no borders here
+  border-radius: 0;   // and no rounded corners
+  box-shadow: none;   // and no box-shadow
+
 }
