@@ -527,9 +527,10 @@ GtkPlacesSidebar.sidebar .view {
 
 
 /* Fix Meld dialog buttons and try not to break anything else */
-/* FIXME GTK3.18 theme update broke this when used with GTK3.16 */
-.message-dialog.csd .dialog-action-area .button {
+/* FIXME: These should really be joined, but as of v3.18 they're spaced
+.message-dialog.csd .dialog-action-area .button, .message-dialog.csd .dialog-action-area .button:backdrop, .message-dialog.csd .dialog-action-area .button:hover {
   border-bottom-style: solid;
+  border-right-style: solid;
   &:last-child {
     border-right-style: solid;
     border-top-right-radius: 7px; }
@@ -542,6 +543,7 @@ GtkPlacesSidebar.sidebar .view {
 /* And put "linked" buttons back to Adwaita style */
 .message-dialog.csd .dialog-action-area.linked .button {
   border-bottom-style: none;
+  border-right-style: solid;
   &:last-child {
     border-right-style: none;
     border-top-right-radius: 0; }

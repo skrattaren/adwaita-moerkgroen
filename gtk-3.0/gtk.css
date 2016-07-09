@@ -5342,20 +5342,23 @@ GtkPlacesSidebar.sidebar .view {
   color: #dddddd; }
 
 /* Fix Meld dialog buttons and try not to break anything else */
-.message-dialog.csd .dialog-action-area .button {
-  border-bottom-style: solid; }
-  .message-dialog.csd .dialog-action-area .button:last-child {
+/* FIXME: These should really be joined, but as of v3.18 they're spaced
+.message-dialog.csd .dialog-action-area .button, .message-dialog.csd .dialog-action-area .button:backdrop, .message-dialog.csd .dialog-action-area .button:hover {
+  border-bottom-style: solid;
+  border-right-style: solid;
+  &:last-child {
     border-right-style: solid;
     border-top-right-radius: 7px; }
-  .message-dialog.csd .dialog-action-area .button:first-child {
+  &:first-child {
     border-left-style: solid;
     border-top-left-radius: 7px; }
-  .message-dialog.csd .dialog-action-area .button:hover, .message-dialog.csd .dialog-action-area .button:backdrop {
-    border-bottom-style: solid; }
+  &:hover, &:backdrop { border-bottom-style: solid; }
+}
 
 /* And put "linked" buttons back to Adwaita style */
 .message-dialog.csd .dialog-action-area.linked .button {
-  border-bottom-style: none; }
+  border-bottom-style: none;
+  border-right-style: solid; }
   .message-dialog.csd .dialog-action-area.linked .button:last-child {
     border-right-style: none;
     border-top-right-radius: 0; }
