@@ -2341,7 +2341,7 @@ widget_class "*<GtkMenu>*"			style "menu"
 widget_class "*<GtkMenu>*"			style "menu_framed_box"
 widget_class "*<GtkMenuItem>*"			style "menu_item"
 # Fudge menu item labels so we don't get Pixmap's ugly shadow on disabled menu items
-widget_class "*<GtkMenuItem>.<GtkLabel>"	style "menu_item_label"
+widget_class "*<GtkMenuItem>*<GtkLabel>"	style "menu_item_label"
 widget_class "*<GtkMenuBar>.<GtkMenuItem>*"	style "menubar_item"
 widget_class "*<GtkCheckButton>*"               style "checkbutton"
 widget_class "*<GtkComboBox>"                   style "combobox"
