@@ -1,0 +1,18 @@
+$variant: 'dark';
+
+@import 'colors';
+
+// Override some colours
+$selected_bg_color: #5E7F3E;
+$selected_borders_color: darken($selected_bg_color, 30%);
+$link_color: darken($selected_bg_color,10%);
+$link_visited_color: darken($selected_bg_color,20%);
+$backdrop_selected_fg_color: $selected_fg_color;
+$backdrop_selected_bg_color: desaturate($selected_bg_color,100%);
+
+// Import the default widgets
+@import 'drawing';
+// Style everything
+@import 'common';
+//Export default colours
+@import 'colors-public';

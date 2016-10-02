@@ -255,12 +255,6 @@ $transparent_outline: #383436;
     text-shadow: none;
     icon-shadow: none;
 }
-.header-bar .titlebutton.button:backdrop:active,
-    .titlebar .titlebutton.button:backdrop:active,
-    .header-bar .titlebutton.button:backdrop:checked,
-    .titlebar .titlebutton.button:backdrop:checked {
-    border-color: $header_button_border_unfocused
-}
 .header-bar .suggested-action.button,
 .header-bar .suggested-action.titlebutton.button,
 .titlebar .suggested-action.titlebutton.button {
@@ -533,10 +527,8 @@ GtkPlacesSidebar.sidebar .view {
 
 
 /* Fix Meld dialog buttons and try not to break anything else */
-/* FIXME: These should really be joined, but as of v3.18 they're spaced
-.message-dialog.csd .dialog-action-area .button, .message-dialog.csd .dialog-action-area .button:backdrop, .message-dialog.csd .dialog-action-area .button:hover {
+.message-dialog.csd .dialog-action-area .button {
   border-bottom-style: solid;
-  border-right-style: solid;
   &:last-child {
     border-right-style: solid;
     border-top-right-radius: 7px; }
@@ -549,7 +541,6 @@ GtkPlacesSidebar.sidebar .view {
 /* And put "linked" buttons back to Adwaita style */
 .message-dialog.csd .dialog-action-area.linked .button {
   border-bottom-style: none;
-  border-right-style: solid;
   &:last-child {
     border-right-style: none;
     border-top-right-radius: 0; }
@@ -587,25 +578,4 @@ GtkTreeView.view {
  */
 GtkTextView {
     background-color: #eee
-}
-
-/*
- * Fix GTK3.18 change that makes .list-row.button items look like buttons
- */
-.list-row.button,
-.list-row.button:backdrop,
-.list-row.button:backdrop:active,
-.list-row.button:backdrop:checked,
-.list-row.button:backdrop:insensitive,
-.list-row.button:backdrop:insensitive:active,
-.list-row.button:backdrop:insensitive:checked,
-.list-row.button:insensitive:active,
-.list-row.button:insensitive:checked {
-  // reset button inherited stuff
-  @extend %undecorated_button;
-  background-color: transparentize($base_color,1); // for the transition
-  border-style: none; // I need no borders here
-  border-radius: 0;   // and no rounded corners
-  box-shadow: none;   // and no box-shadow
-
 }
