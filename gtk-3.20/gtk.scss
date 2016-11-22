@@ -1,0 +1,505 @@
+// General guidelines:
+// - very unlikely you want to edit something else than _common.scss
+// - keep the number of defined colors to a minimum, use the color blending functions if
+//   you need a subtle shade
+// - if you need to inverse a color function use the @if directive to match for dark $variant
+
+
+/// TODO:
+/// * Terminal background is $base_color
+/// * Nautilus icon view background with multiple tabs is $base_color
+/// * Right-click and drop-down menu border (esp in Geany and gEdit)
+
+
+$variant: 'light';
+
+// Import the default colours
+@import 'colors';
+
+// Override some colours
+$base_color: #C6C6C6;
+$bg_color: #C6C6C6;
+$fg_color: #161616;
+$selected_bg_color: #5E7F3E;
+$selected_borders_color: darken($selected_bg_color, 30%);
+$borders_color: darken($bg_color,30%);
+$borders_edge: transparentize(lighten($bg_color, 30%), 0.9);
+$dark_fill: mix($borders_color, $bg_color, 35%);
+$link_color: darken($selected_bg_color,10%);
+$link_visited_color: darken($selected_bg_color,20%);
+$top_hilight: $borders_edge;
+$popover_bg_color: $bg_color;
+$popover_hover_color: lighten($bg_color, 5%);
+$menu_color: $bg_color;
+
+$scrollbar_bg_color: darken($bg_color, 7%);
+
+$sidebar_bg_color: darken($bg_color,5%);
+
+//insensitive state derived colors
+$insensitive_fg_color: mix($fg_color, $bg_color, 50%);
+$insensitive_bg_color: mix($bg_color, $base_color, 60%);
+$insensitive_borders_color: $borders_color;
+
+//colors for the backdrop state, derived from the main colors.
+$backdrop_base_color: darken($base_color, 1%);
+$backdrop_text_color: mix($text_color, $backdrop_base_color, 80%);
+$backdrop_bg_color: $bg_color;
+$backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%);
+$backdrop_insensitive_color: darken($backdrop_bg_color, 15%);
+$backdrop_selected_fg_color: $selected_fg_color;
+$backdrop_selected_bg_color: desaturate($selected_bg_color,100%);
+$backdrop_borders_color: mix($borders_color, $bg_color, 90%);
+$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
+$backdrop_sidebar_bg_color: darken($backdrop_bg_color,5%);
+$backdrop_menu_color: $backdrop_bg_color;
+
+$backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%);
+
+
+// Add our own colours
+$text_input_color: #F0F0F0;
+$backdrop_text_input_color: darken($text_input_color, 1%);
+$bg_dark_color: #3D3D3D;
+$fg_dark_color: #dddddd;
+$insensitive_dark_fg_color: mix($fg_dark_color, $bg_dark_color, 50%);
+$titlebar_highlight: #4c4c4c;
+$header_button_raised_gradient_color_a: lighten($bg_dark_color, 10%);
+$header_button_checked: darken($bg_dark_color, 5%);
+$header_button_border: darken($bg_dark_color, 5%);
+$header_button_border_unfocused: darken($bg_dark_color, 5%);
+$menu_fg_dark_color: #cccccc;
+$focused_entry_outer:  transparentize($selected_bg_color, 0.45);
+$bg_gradient_1: lighten($bg_color, 20%);
+$bg_gradient_2: lighten($bg_color, 10%);
+$bg_gradient_3: lighten($bg_color, 5%);
+$bg_prelight: $bg_gradient_1;
+$selected_bg_color_hover: lighten($selected_bg_color, 10%);
+$selected_bg_color_shade: darken($selected_bg_color, 10%);
+$selected_bg_border: darken($selected_bg_color, 30%);
+$title_fg: #fff;
+$header_separator: lighten($bg_dark_color, 10%);
+$fg_color_emphasis: darken($fg_color, 50%);
+$fg_color_de_emphasis: lighten($fg_color, 20%);
+$unfocused_fg_color: $backdrop_fg_color;
+$unfocused_insensitive_fg_color: lighten($insensitive_fg_color, 20%);
+$transparent_outline: #383436;
+
+// Import the default widgets
+@import 'drawing';
+// Style everything
+@import 'common';
+//Export default colours
+@import 'colors-public';
+
+//Override some exported colours
+@define-color wm_title #{"" + $bg_dark_color};
+@define-color wm_unfocused_title #{"" + $bg_dark_color};
+@define-color wm_highlight shade(#{"" + $bg_dark_color}, 1.03);
+@define-color wm_borders_edge #{"" + $bg_dark_color};
+
+@define-color wm_bg_a shade(#{$bg_dark_color}, 1.2);
+@define-color wm_bg_b #{$bg_dark_color};
+
+@define-color wm_button_hover_color_a shade(#{$bg_dark_color}, 1.3);
+@define-color wm_button_hover_color_b #{$bg_dark_color};
+@define-color wm_button_active_color_a shade(#{$bg_dark_color}, 0.85);
+@define-color wm_button_active_color_b shade(#{$bg_dark_color}, 0.89);
+@define-color wm_button_active_color_c shade(#{$bg_dark_color}, 0.9);
+
+
+// And now do our own overrides of styling
+*:insensitive {
+  -gtk-image-effect: highlight;
+}
+
+/***************
+ * Header bars *
+ ***************/
+%titlebar,
+headerbar {
+  color: $title_fg;
+  background-image: linear-gradient(to bottom, $bg_dark_color, lighten($bg_dark_color, 3%) 20%, $bg_dark_color 45%);
+  border-color: shade($bg_dark_color, 0.90);
+  border-bottom-width: 0;
+  box-shadow: inset 0 2px $titlebar_highlight, inset 0 1px $header_button_border;
+  background-color: $bg_dark_color;
+
+  &:backdrop {
+    color: $fg_dark_color;
+    box-shadow: none;
+    background-color: $bg_dark_color;
+    background-image: none;
+    border-bottom-width: 0;
+    border-color: darken($bg_dark_color, 10%);
+  }
+
+  .title {
+    color: $title_fg;
+  }
+
+  .subtitle {
+  }
+
+  .tiled &,
+  .maximized & { &:backdrop, & { }}
+
+  &.default-decoration {
+    button.titlebutton {
+    }
+  }
+}
+
+headerbar {
+  entry,
+  spinbutton,
+  separator,
+  button {
+  }
+  switch {
+  }
+}
+
+.background:not(.tiled):not(.maximized) .titlebar {
+  &:backdrop, & {
+  }
+}
+
+headerbar {
+  window:not(.tiled):not(.maximized) separator:first-child + &, // tackles the paned container case
+  window:not(.tiled):not(.maximized) &:first-child { &:backdrop, & { }}
+
+  window:not(.tiled):not(.maximized) &:last-child { &:backdrop, & { }}
+}
+
+.titlebar:not(headerbar) {
+  window.csd > & {
+    // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
+    padding: 0;
+    background-color: transparent;
+    background-image: none;
+    border-style: none;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  > separator { background-color: $borders_color; }
+
+  @extend %titlebar;
+}
+
+headerbar button {
+  &, &:backdrop {
+    &, &:checked {
+      &, & label {
+        color: $fg_dark_color;
+      }
+    }
+  }
+}
+%titlebar,
+headerbar {
+  button {
+    color: $fg_dark_color;
+    background-image: linear-gradient(to bottom, $header_button_raised_gradient_color_a, $bg_dark_color);
+    text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+    icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+    border-color: $header_button_border;
+    outline-color: $header_button_raised_gradient_color_a;
+    box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a;
+
+    &.flat, &.titlebutton {
+      color: $fg_dark_color;
+      background-image: none;
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      text-shadow: none;
+      icon-shadow: none;
+
+      &:hover, &:active, &:backdrop {
+        color: $title_fg;
+      }
+    }
+
+    &:hover, &.titlebutton:hover {
+	  color: shade($fg_dark_color, 1.3);
+      outline-color: $header_button_raised_gradient_color_a;
+      border-color: $header_button_border;
+      background-image: linear-gradient(to bottom, shade($header_button_raised_gradient_color_a, 1.1), shade($bg_dark_color, 1.1));
+      text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+      icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+      box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a;
+    }
+
+    &:active,
+    &:checked, &.titlebutton:active, &.titlebutton:active:backdrop {
+      color: $title_fg;
+      outline-color: $header_button_raised_gradient_color_a;
+      border-color: $header_button_border;
+      background-image: linear-gradient(to bottom, $bg_dark_color, $header_button_checked);
+      text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+      icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+      box-shadow: inset 0 1px transparentize($header_button_raised_gradient_color_a, 0.7), 0 1px $header_button_raised_gradient_color_a;
+    }
+
+    &:backdrop {
+      &.flat, & {
+        color: $fg_dark_color;
+        background-image: none;
+        background-color: $bg_dark_color;
+        border-color: $header_button_border;
+        box-shadow:none;
+        text-shadow: none;
+        icon-shadow: none;
+
+        transition: $backdrop_transition;
+        -gtk-icon-effect: none;
+
+        &:active,
+        &:checked { 
+          background-image: none;
+          background-color: $header_button_checked;
+          border-color: $header_button_border;
+        }
+
+        &:disabled, &.suggested-action:disabled {
+          color: $insensitive_dark_fg_color;
+          background-color: $bg_dark_color;
+          background-image: none;
+          border-color: $header_button_border;
+          box-shadow: none;
+          
+          &:active,
+          &:checked { }
+        }
+      }
+    }
+
+    &.flat { &:backdrop, &:disabled, &:backdrop:disabled { }}
+
+    &:disabled, &.suggested-action:disabled {
+      color: $insensitive_dark_fg_color;
+      background-color: $bg_dark_color;
+      background-image: none;
+      border-color: $header_button_border;
+      box-shadow: 0 1px $header_button_raised_gradient_color_a;
+
+      &:active,
+      &:checked { @include button(insensitive-active, $header_button_raised_gradient_color_a, $fg_dark_color); }
+    }
+
+    &:drop(active) {
+      color: $drop_target_color;
+      border-color: $drop_target_color;
+      box-shadow: inset 0 0 0 1px $drop_target_color;
+    }
+    
+    &.suggested-action:backdrop {
+      border-color: $header_button_border;
+    }
+    
+    &.suggested-action label { color: $selected_fg_color; }
+  }
+}
+
+column-header button, column-header headerbar button.titlebutton, headerbar column-header button.titlebutton,
+column-header .titlebar button.titlebutton,
+.titlebar column-header button.titlebutton {
+  color: $fg_color;
+  background-color: $bg_gradient_2;}
+  column-header button:hover, column-header headerbar button.titlebutton:hover, headerbar column-header button.titlebutton:hover,
+  column-header .titlebar button.titlebutton:hover,
+  .titlebar column-header button.titlebutton:hover {
+    color: $fg_color_emphasis; }
+
+entry, .linked.vertical > entry, .linked.vertical > entry:first-child, .linked.vertical > entry:last-child, spinbutton:not(.vertical) {
+  background-image: entry_gradient($text_input_color);
+  background-color: $text_input_color;
+  
+  &:focus { background-image: entry_gradient($text_input_color); }
+  &:insensitive { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
+  &:backdrop { background-image: none; background-color: $backdrop_text_input_color; }
+  &:backdrop:insensitive { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
+}
+spinbutton:not(.vertical) button:hover {
+  background-color: transparentize($bg_color,0.6);
+  border-top-color: transparent;
+  border-top-style: solid;
+  border-top-width:1px;
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width:1px;
+  background-clip: padding-box;
+}
+
+.view, .view text, iconview, iconview text, textview, textview text, list, list-row, list-row.button,  {
+  color: $text_color;
+  background-color: $text_input_color;
+  &:backdrop, &:backdrop:hover {
+    color: $backdrop_text_color;
+    background-color: $backdrop_text_input_color;
+  }
+  &:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+  &:hover {
+    background-color: mix($fg_color, $text_input_color, 5%);
+  }
+  &:active {
+    box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8);
+  }
+  &:selected {
+    &:active { box-shadow: inset 0 2px 3px -1px transparentize(black, 0.5); }
+    &:hover {
+      background-color: mix($fg_color, $selected_bg_color, 10%);
+    }
+    &:backdrop { background-color: $selected_bg_color; }
+  }
+}
+
+// The path bar box in Open dialogs is classed as a view, but we don't
+// want it that light
+#pathbarbox {
+  background-color: $bg_color;
+}
+list-row {
+  // Set sidebar items back to something reasonable
+  &.sidebar-item {
+    background-color: $sidebar_bg_color;
+    border-color: $borders_color;
+    &:backdrop, &:backdrop:hover {
+      background-color: $backdrop_sidebar_bg_color;
+      border-color: $backdrop_borders_color;
+    }
+    // let's take care of background colors
+    &:hover {
+      background-color: mix($fg_color, $base_color, 5%);
+    }
+    &:active {
+      box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8);
+    }
+    &:selected {
+      background-color: $selected_bg_color;
+      &:active { box-shadow: inset 0 2px 3px -1px transparentize(black, 0.5); }
+      &:hover {
+        background-color: mix($fg_color, $selected_bg_color, 10%);
+      }
+      &:backdrop { background-color: $selected_bg_color; }
+    }
+  }
+}
+
+/* Fudge the Nautilus icon view background colour in the only way that seems to work */
+.nautilus-window notebook { background-color: $text_input_color; }
+
+/* And make the Nautilus places bar a bit darker, as it used to be */
+placessidebar list {
+    background-color: $sidebar_bg_color;
+    border-color: $borders_color;
+    &:backdrop {
+      background-color: $backdrop_sidebar_bg_color;
+      border-color: $backdrop_borders_color;
+    }
+}
+
+// Fix the rubberband background after we gave lists and views a lighter background
+.view.rubberband {
+  background-color: transparentize($selected_bg_color,0.8);
+}
+menubar {
+  background-color: $bg_dark_color;
+  color: $menu_fg_dark_color;
+  box-shadow: inset 0 -1px transparentize(black, 0.9);
+  &:backdrop { 
+    background-color: $bg_dark_color;
+    color: $menu_fg_dark_color;
+  }
+}
+menubar, headerbar {
+  menu { 
+    background-color: $bg_dark_color;
+    color: $menu_fg_dark_color;
+    border-color: $header_button_border;
+  }
+  & > menuitem {
+    &:hover { //Seems like it :hover even with keyboard focus
+      box-shadow: inset 0 -3px $selected_bg_color;
+    }
+    &, & label {
+      &:hover { //Seems like it :hover even with keyboard focus
+        color: $selected_bg_color
+      }
+      &:insensitive {
+        color: $insensitive_fg_color;
+        box-shadow: none;
+      }
+      &:backdrop {
+        color: $menu_fg_dark_color;
+      }
+      & menuitem.check, & menuitem.radio {
+        color: $fg_dark_color;
+      }
+    }
+  }
+}
+menu,
+.menu,
+.context-menu {
+  //border-color: darken($borders_color,40%);
+  border: 5px solid #f00;
+}
+.floating-bar {
+  opacity: 0.9;
+  color: $text_color;
+  background-color: $text_input_color;
+  border: 1px solid $borders_color;
+
+  @each $tb,$tb_corner in ('top','bottom'),
+                          ('bottom','top') {
+    @each $lr,$lr_corner in ('left','right'),
+                 ('right','left') {
+      &.#{$tb}.#{$lr} {
+        border-#{$tb_corner}-#{$lr_corner}-radius: 3px;
+        border-#{$tb}-width: 0;
+        border-#{$lr}-width: 0;
+      }
+    }
+  }
+}
+
+treeview.view header button { 
+  &, &:hover, &:active, &:disabled {
+    &, &:backdrop {
+      border-color: lighten($borders_color, 20%);
+    }
+  }
+}
+
+treeview.view header button:last-child {
+  &:hover {
+    border-right-width: 0;
+  }
+}
+
+// Lighten selected tabs a bit to match other UI
+notebook {
+  > header {
+    tab {
+      &:checked {
+        &.reorderable-page {
+          border-color: $borders_color;
+          background-color: $bg_color;
+          &:hover { background-color: lighten($bg_color, 5%); }
+        }
+      }
+
+      &:backdrop:checked {
+        &.reorderable-page {
+          background-color: $backdrop_bg_color;
+        }
+      }
+    }
+  }
+}
