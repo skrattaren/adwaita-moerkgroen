@@ -4815,7 +4815,7 @@ list-row.sidebar-item {
       background-color: #5E7F3E; }
 
 /* Fudge the Nautilus icon view background colour in the only way that seems to work */
-.nautilus-window notebook {
+.nautilus-window notebook > stack > box > grid {
   background-color: #F0F0F0; }
 
 /* And make the Nautilus places bar a bit darker, as it used to be */
