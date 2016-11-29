@@ -4649,6 +4649,10 @@ headerbar button {
     headerbar button.titlebutton:active,
     headerbar button.titlebutton:backdrop {
       color: #fff; }
+    .titlebar:not(headerbar) button.flat:backdrop, .titlebar:not(headerbar) button.titlebutton:backdrop,
+    headerbar button.flat:backdrop,
+    headerbar button.titlebutton:backdrop {
+      border-color: transparent; }
   .titlebar:not(headerbar) button:hover, .titlebar:not(headerbar) button.titlebutton:hover,
   headerbar button:hover,
   headerbar button.titlebutton:hover {
@@ -4671,8 +4675,7 @@ headerbar button {
     text-shadow: 0 1px rgba(87, 87, 87, 0.5);
     icon-shadow: 0 1px rgba(87, 87, 87, 0.5);
     box-shadow: inset 0 1px rgba(87, 87, 87, 0.3), 0 1px #575757; }
-  .titlebar:not(headerbar) button:backdrop.flat, .titlebar:not(headerbar) button:backdrop,
-  headerbar button:backdrop.flat,
+  .titlebar:not(headerbar) button:backdrop,
   headerbar button:backdrop {
     color: #dddddd;
     background-image: none;
@@ -4683,17 +4686,13 @@ headerbar button {
     icon-shadow: none;
     transition: 200ms ease-out;
     -gtk-icon-effect: none; }
-    .titlebar:not(headerbar) button:backdrop.flat:active, .titlebar:not(headerbar) button:backdrop.flat:checked, .titlebar:not(headerbar) button:backdrop:active, .titlebar:not(headerbar) button:backdrop:checked,
-    headerbar button:backdrop.flat:active,
-    headerbar button:backdrop.flat:checked,
+    .titlebar:not(headerbar) button:backdrop:active, .titlebar:not(headerbar) button:backdrop:checked,
     headerbar button:backdrop:active,
     headerbar button:backdrop:checked {
       background-image: none;
       background-color: #303030;
       border-color: #303030; }
-    .titlebar:not(headerbar) button:backdrop.flat:disabled, .titlebar:not(headerbar) button:backdrop.flat.suggested-action:disabled, .titlebar:not(headerbar) button:backdrop:disabled, .titlebar:not(headerbar) button:backdrop.suggested-action:disabled,
-    headerbar button:backdrop.flat:disabled,
-    headerbar button:backdrop.flat.suggested-action:disabled,
+    .titlebar:not(headerbar) button:backdrop:disabled, .titlebar:not(headerbar) button:backdrop.suggested-action:disabled,
     headerbar button:backdrop:disabled,
     headerbar button:backdrop.suggested-action:disabled {
       color: #8d8d8d;
