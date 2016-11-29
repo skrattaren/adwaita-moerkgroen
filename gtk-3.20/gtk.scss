@@ -444,12 +444,7 @@ menubar, headerbar {
     }
   }
 }
-menu,
-.menu,
-.context-menu {
-  //border-color: darken($borders_color,40%);
-  border: 5px solid #f00;
-}
+
 .floating-bar {
   opacity: 0.9;
   color: $text_color;

@@ -4854,11 +4854,6 @@ menubar > menuitem:backdrop, menubar > menuitem label:backdrop, headerbar > menu
 menubar > menuitem menuitem.check, menubar > menuitem menuitem.radio, menubar > menuitem label menuitem.check, menubar > menuitem label menuitem.radio, headerbar > menuitem menuitem.check, headerbar > menuitem menuitem.radio, headerbar > menuitem label menuitem.check, headerbar > menuitem label menuitem.radio {
   color: #dddddd; }
 
-menu,
-.menu,
-.context-menu {
-  border: 5px solid #f00; }
-
 .floating-bar {
   opacity: 0.9;
   color: black;
