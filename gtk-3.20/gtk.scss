@@ -418,23 +418,26 @@ menubar {
     color: $menu_fg_dark_color;
   }
 }
+// Make all menus dark - we mainly want the menu bar menus dark, but
+// Firefox and other non-standard apps use those colours for their
+// context menus as well, so be consistent.
+menu {
+  background-color: $bg_dark_color;
+  color: $menu_fg_dark_color;
+  border-color: $header_button_border;
+}
+// Except combo box backgrounds. We want those to be grey, like the
+// combobox itself
+#gtk-combobox-popup-menu {
+  background-color: $bg_color;
+  color: $fg_color;
+}
+// Top-level menu text needs to be tweaked to match dark menus
 menubar, headerbar {
-  menu { 
-    background-color: $bg_dark_color;
-    color: $menu_fg_dark_color;
-    border-color: $header_button_border;
-  }
   & > menuitem {
-    &:hover { //Seems like it :hover even with keyboard focus
-      box-shadow: inset 0 -3px $selected_bg_color;
-    }
     &, & label {
       &:hover { //Seems like it :hover even with keyboard focus
         color: $selected_bg_color
-      }
-      &:insensitive {
-        color: $insensitive_fg_color;
-        box-shadow: none;
       }
       &:backdrop {
         color: $menu_fg_dark_color;

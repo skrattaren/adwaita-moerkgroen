@@ -4837,17 +4837,17 @@ menubar {
     background-color: #3D3D3D;
     color: #cccccc; }
 
-menubar menu, headerbar menu {
+menu {
   background-color: #3D3D3D;
   color: #cccccc;
   border-color: #303030; }
-menubar > menuitem:hover, headerbar > menuitem:hover {
-  box-shadow: inset 0 -3px #5E7F3E; }
+
+#gtk-combobox-popup-menu {
+  background-color: #C6C6C6;
+  color: #161616; }
+
 menubar > menuitem:hover, menubar > menuitem label:hover, headerbar > menuitem:hover, headerbar > menuitem label:hover {
   color: #5E7F3E; }
-menubar > menuitem:insensitive, menubar > menuitem label:insensitive, headerbar > menuitem:insensitive, headerbar > menuitem label:insensitive {
-  color: #6e6e6e;
-  box-shadow: none; }
 menubar > menuitem:backdrop, menubar > menuitem label:backdrop, headerbar > menuitem:backdrop, headerbar > menuitem label:backdrop {
   color: #cccccc; }
 menubar > menuitem menuitem.check, menubar > menuitem menuitem.radio, menubar > menuitem label menuitem.check, menubar > menuitem label menuitem.radio, headerbar > menuitem menuitem.check, headerbar > menuitem menuitem.radio, headerbar > menuitem label menuitem.check, headerbar > menuitem label menuitem.radio {
