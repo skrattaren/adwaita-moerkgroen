@@ -393,7 +393,7 @@ list-row {
 }
 
 /* Fudge the Nautilus icon view background colour in the only way that seems to work */
-.nautilus-window notebook { background-color: $text_input_color; }
+.nautilus-window notebook > stack > box > grid { background-color: $text_input_color; }
 
 /* And make the Nautilus places bar a bit darker, as it used to be */
 placessidebar list {
