@@ -421,14 +421,14 @@ menubar {
 // Make all menus dark - we mainly want the menu bar menus dark, but
 // Firefox and other non-standard apps use those colours for their
 // context menus as well, so be consistent.
-menu {
+menu, .menu, .context-menu {
   background-color: $bg_dark_color;
   color: $menu_fg_dark_color;
   border-color: $header_button_border;
 }
 // Except combo box backgrounds. We want those to be grey, like the
 // combobox itself
-#gtk-combobox-popup-menu {
+popover.menu, #gtk-combobox-popup-menu {
   background-color: $bg_color;
   color: $fg_color;
 }

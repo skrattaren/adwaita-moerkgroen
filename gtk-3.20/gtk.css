@@ -4837,12 +4837,12 @@ menubar {
     background-color: #3D3D3D;
     color: #cccccc; }
 
-menu {
+menu, .menu, .context-menu {
   background-color: #3D3D3D;
   color: #cccccc;
   border-color: #303030; }
 
-#gtk-combobox-popup-menu {
+popover.menu, #gtk-combobox-popup-menu {
   background-color: #C6C6C6;
   color: #161616; }
 
