@@ -109,8 +109,8 @@ $transparent_outline: #383436;
 
 
 // And now do our own overrides of styling
-*:insensitive {
-  -gtk-image-effect: highlight;
+*:disabled {
+  -gtk-icon-effect: highlight;
 }
 
 /***************
@@ -203,7 +203,7 @@ headerbar {
     color: $fg_dark_color;
     background-image: linear-gradient(to bottom, $header_button_raised_gradient_color_a, $bg_dark_color);
     text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
-    icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+    -gtk-icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
     border-color: $header_button_border;
     outline-color: $header_button_raised_gradient_color_a;
     box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a;
@@ -215,7 +215,7 @@ headerbar {
       border-color: transparent;
       box-shadow: none;
       text-shadow: none;
-      icon-shadow: none;
+      -gtk-icon-shadow: none;
 
       &:hover, &:active, &:backdrop {
         color: $title_fg;
@@ -231,7 +231,7 @@ headerbar {
       border-color: $header_button_border;
       background-image: linear-gradient(to bottom, shade($header_button_raised_gradient_color_a, 1.1), shade($bg_dark_color, 1.1));
       text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
-      icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+      -gtk-icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
       box-shadow: inset 0 1px $header_button_raised_gradient_color_a, 0 1px $header_button_raised_gradient_color_a;
     }
 
@@ -242,7 +242,7 @@ headerbar {
       border-color: $header_button_border;
       background-image: linear-gradient(to bottom, $bg_dark_color, $header_button_checked);
       text-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
-      icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
+      -gtk-icon-shadow: 0 1px transparentize($header_button_raised_gradient_color_a, 0.5);
       box-shadow: inset 0 1px transparentize($header_button_raised_gradient_color_a, 0.7), 0 1px $header_button_raised_gradient_color_a;
     }
 
@@ -253,7 +253,7 @@ headerbar {
         border-color: $header_button_border;
         box-shadow:none;
         text-shadow: none;
-        icon-shadow: none;
+        -gtk-icon-shadow: none;
 
         transition: $backdrop_transition;
         -gtk-icon-effect: none;
@@ -319,9 +319,9 @@ entry, .linked.vertical > entry, .linked.vertical > entry:first-child, .linked.v
   background-color: $text_input_color;
   
   &:focus { background-image: entry_gradient($text_input_color); }
-  &:insensitive { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
+  &:disabled { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
   &:backdrop { background-image: none; background-color: $backdrop_text_input_color; }
-  &:backdrop:insensitive { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
+  &:backdrop:disabled { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
 }
 spinbutton:not(.vertical) button:hover {
   background-color: transparentize($bg_color,0.6);
