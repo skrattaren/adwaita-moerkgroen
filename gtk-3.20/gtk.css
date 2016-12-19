@@ -4840,6 +4840,9 @@ menubar {
 menuitem > label {
   color: #cccccc; }
 
+menuitem:hover > label {
+  color: #5E7F3E; }
+
 menu, .menu, .context-menu {
   background-color: #3D3D3D;
   color: #cccccc;

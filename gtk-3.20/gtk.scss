@@ -425,6 +425,9 @@ menubar {
 menuitem > label {
   color: $menu_fg_dark_color;
 }
+menuitem:hover > label {
+  color: $selected_bg_color
+}
 // Make all menus dark - we mainly want the menu bar menus dark, but
 // Firefox and other non-standard apps use those colours for their
 // context menus as well, so be consistent.
