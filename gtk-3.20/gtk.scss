@@ -215,7 +215,7 @@ headerbar {
       text-shadow: none;
       -gtk-icon-shadow: none;
 
-      &:hover, &:active, &:backdrop {
+      &:hover, &:active, &:backdrop, &:checked {
         color: $title_fg;
       }
       &:backdrop {
@@ -234,7 +234,7 @@ headerbar {
     }
 
     &:active,
-    &:checked, &.titlebutton:active, &.titlebutton:active:backdrop {
+    &:checked, &.titlebutton:active, &.titlebutton:active:backdrop, &.titlebutton:checked, &.titlebutton:checked:backdrop {
       color: $title_fg;
       outline-color: $header_button_raised_gradient_color_a;
       border-color: $header_button_border;
