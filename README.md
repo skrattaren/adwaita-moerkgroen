@@ -20,6 +20,13 @@ The following screenshots were taken at [revision ecae148f2522](https://dev.ibbo
 ![GTK3 Widget Factory - Page 3](./GTK3-Page3.png)
 ![GTK2 Widget Factory](./GTK2.png)
 
+Chaning the theme
+-----------------
+
+If you want to change any of the colours in the theme, edit the colour variable in the first ~100 lines of the appropriate gtk.scss and run
+./parse-sass.sh.
+
+Note: GTK 3 has introduced a built-in versioning system to help themes deal with the various internal widget changes between GTK versions. This means that GTK will look for the latest versioned directory that is less than or equal to the version number. When using Adwaita Dark Green then GTK 3 ≤ 3.16 will use the gtk-3.0 directory, GTK 3.18 will use the gtk-3.18 directory and GTK 3 ≥ 3.20 will use the gtk-3.20 directory.
 
 Copyright/License
 -----------------
