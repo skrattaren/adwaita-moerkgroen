@@ -4592,7 +4592,7 @@ read if you used those and something break with a version upgrade you're on your
 .titlebar:not(headerbar),
 headerbar {
   color: #fff;
-  background-image: linear-gradient(to bottom, #3D3D3D, #454545 20%, #3D3D3D 45%);
+  background-image: linear-gradient(to bottom, #454545 0%, #3D3D3D 45%);
   border-color: shade(#3D3D3D, 0.9);
   border-bottom-width: 0;
   box-shadow: inset 0 2px #4c4c4c, inset 0 1px #303030;
