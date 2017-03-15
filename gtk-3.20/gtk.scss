@@ -373,6 +373,10 @@ spinbutton:not(.vertical) button:hover {
   }
 }
 
+.sidebar list {
+  background: transparent;
+}
+
 // The path bar box in Open dialogs is classed as a view, but we don't
 // want it that light
 #pathbarbox {

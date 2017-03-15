@@ -4862,6 +4862,9 @@ spinbutton:not(.vertical) button:hover {
   .view:selected:backdrop, iconview:selected:backdrop, .view text:selected:backdrop, iconview text:selected:backdrop, iconview:selected:backdrop, iconview text:selected:backdrop, textview:selected:backdrop, textview text:selected:backdrop, list:selected:backdrop, list-row:selected:backdrop, list-row.button:selected:backdrop {
     background-color: #5E7F3E; }
 
+.sidebar list {
+  background: transparent; }
+
 #pathbarbox {
   background-color: #C6C6C6; }
 
