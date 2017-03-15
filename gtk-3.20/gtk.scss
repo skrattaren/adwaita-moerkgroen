@@ -21,6 +21,7 @@ $fg_color: #161616;
 $selected_bg_color: #5E7F3E;
 $selected_borders_color: darken($selected_bg_color, 30%);
 $borders_color: darken($bg_color,30%);
+$alt_borders_color: if($variant == 'light', darken($bg_color, 35%), darken($bg_color, 17%));
 $borders_edge: transparentize(lighten($bg_color, 30%), 0.9);
 $dark_fill: mix($borders_color, $bg_color, 35%);
 $link_color: darken($selected_bg_color,10%);
@@ -313,13 +314,27 @@ column-header .titlebar button.titlebutton,
     color: $fg_color_emphasis; }
 
 entry, .linked.vertical > entry, .linked.vertical > entry:first-child, .linked.vertical > entry:last-child, spinbutton:not(.vertical) {
-  background-image: entry_gradient($text_input_color);
+  background-image: linear-gradient(to bottom, $text_input_color);
   background-color: $text_input_color;
   
-  &:focus { background-image: entry_gradient($text_input_color); }
+  &:focus { background-image: linear-gradient(to bottom, $text_input_color); }
   &:disabled { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
   &:backdrop { background-image: none; background-color: $backdrop_text_input_color; }
   &:backdrop:disabled { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
+}
+%entry,
+entry {
+  %entry_basic, & {
+  }
+  .linked.vertical > & {
+    &:not(:disabled) + entry:not(:disabled),
+    &:not(:disabled) + %entry:not(:disabled) {    
+      background-image: linear-gradient(to bottom, $text_input_color);
+      &:backdrop {
+        background-image: linear-gradient(to bottom, $text_input_color);
+      }
+    }
+  }
 }
 spinbutton:not(.vertical) button:hover {
   background-color: transparentize($bg_color,0.6);
