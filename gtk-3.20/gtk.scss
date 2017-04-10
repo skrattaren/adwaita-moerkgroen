@@ -311,12 +311,47 @@ headerbar:not(.selection-mode) {
       border-color: $drop_target_color;
       box-shadow: inset 0 0 0 1px $drop_target_color;
     }
-    
-    &.suggested-action:backdrop {
-      border-color: $header_button_border;
+    &.suggested-action {
+      @include button(normal, $selected_bg_color, white);
+      &.flat {
+        @include button(undecorated);
+
+        color: $selected_bg_color; //FIXME: does it work on the dark variant?
+      }
+
+      &:hover { @include button(hover, $selected_bg_color, white); }
+
+      &:active,
+      &:checked { @include button(active, $selected_bg_color, white); }
+
+      &:backdrop,
+      &.flat:backdrop {
+        @include button(backdrop, $selected_bg_color, white);
+
+        &:active,
+        &:checked { @include button(backdrop-active, $selected_bg_color, white); }
+
+        &:disabled {
+          @include button(backdrop-insensitive);
+
+          &:active,
+          &:checked { @include button(backdrop-insensitive-active, $selected_bg_color, white); }
+        }
+      }
+
+      &.flat {
+        &:backdrop, &:disabled, &:backdrop:disabled {
+          @include button(undecorated);
+
+          color: transparentize($selected_bg_color, 0.2);
+        }
+      }
     }
-    
-    &.suggested-action label { color: $selected_fg_color; }
+//    &.suggested-action:backdrop {
+//      @include button(normal, $selected_bg_color, white);
+//    }
+//    
+//    &.suggested-action label { color: $selected_fg_color; }
   }
 }
 

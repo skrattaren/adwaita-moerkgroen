@@ -4920,12 +4920,116 @@ headerbar:not(.selection-mode) button {
     color: #4e9a06;
     border-color: #4e9a06;
     box-shadow: inset 0 0 0 1px #4e9a06; }
-  .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop,
-  headerbar:not(.selection-mode) button.suggested-action:backdrop {
-    border-color: #303030; }
-  .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action label,
-  headerbar:not(.selection-mode) button.suggested-action label {
-    color: #ffffff; }
+  .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action,
+  headerbar:not(.selection-mode) button.suggested-action {
+    color: white;
+    outline-color: rgba(255, 255, 255, 0.3);
+    border-color: #2b3a1d;
+    border-bottom-color: #12180c;
+    background-image: linear-gradient(to bottom, #5E7F3E, #547137 60%, #455d2d);
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.70353);
+    -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.70353);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.05); }
+    .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat,
+    headerbar:not(.selection-mode) button.suggested-action.flat {
+      border-color: transparent;
+      background-color: transparent;
+      background-image: none;
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0);
+      text-shadow: none;
+      -gtk-icon-shadow: none;
+      color: #5E7F3E; }
+    .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:hover,
+    headerbar:not(.selection-mode) button.suggested-action:hover {
+      color: white;
+      outline-color: rgba(255, 255, 255, 0.3);
+      border-color: #2b3a1d;
+      border-bottom-color: #12180c;
+      text-shadow: 0 -1px rgba(0, 0, 0, 0.65553);
+      -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.65553);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.2);
+      background-image: linear-gradient(to bottom, #6d9448, #5E7F3E 60%, #547137); }
+    .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:checked,
+    headerbar:not(.selection-mode) button.suggested-action:active,
+    headerbar:not(.selection-mode) button.suggested-action:checked {
+      color: white;
+      outline-color: rgba(255, 255, 255, 0.3);
+      border-color: #2b3a1d;
+      background-image: image(#4f6a34);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0);
+      text-shadow: none;
+      -gtk-icon-shadow: none; }
+    .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop,
+    headerbar:not(.selection-mode) button.suggested-action:backdrop,
+    headerbar:not(.selection-mode) button.suggested-action.flat:backdrop {
+      border-color: #5E7F3E;
+      background-image: image(#5E7F3E);
+      text-shadow: none;
+      -gtk-icon-shadow: none;
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
+      .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop,
+      headerbar:not(.selection-mode) button.suggested-action:backdrop label,
+      headerbar:not(.selection-mode) button.suggested-action:backdrop,
+      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop label,
+      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop {
+        color: #dfe5d8; }
+      .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:checked, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked,
+      headerbar:not(.selection-mode) button.suggested-action:backdrop:active,
+      headerbar:not(.selection-mode) button.suggested-action:backdrop:checked,
+      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:active,
+      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked {
+        border-color: #5a7043;
+        background-image: image(#5a7043);
+        box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
+        .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:checked label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:checked, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:active label,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:active,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:checked label,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:checked,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:active label,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:active,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked label,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked {
+          color: #dee2d9; }
+      .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled,
+      headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled,
+      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled {
+        border-color: #828282;
+        background-image: image(#c6c6c6);
+        text-shadow: none;
+        -gtk-icon-shadow: none;
+        box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
+        .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled {
+          color: #a0a0a0; }
+        .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked {
+          border-color: #5a7043;
+          background-image: image(#5a7043);
+          box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
+          .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked label,
+          headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active label,
+          headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked label,
+          headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active label,
+          headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked label {
+            color: #94a285; }
+    .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled,
+    headerbar:not(.selection-mode) button.suggested-action.flat:backdrop,
+    headerbar:not(.selection-mode) button.suggested-action.flat:disabled,
+    headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled {
+      border-color: transparent;
+      background-color: transparent;
+      background-image: none;
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0);
+      text-shadow: none;
+      -gtk-icon-shadow: none;
+      color: rgba(94, 127, 62, 0.8); }
 
 column-header button, column-header headerbar button.titlebutton, headerbar column-header button.titlebutton,
 column-header .titlebar button.titlebutton,
