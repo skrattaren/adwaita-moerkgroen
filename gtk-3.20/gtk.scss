@@ -6,7 +6,6 @@
 
 
 /// TODO:
-/// * Selected colour header bars show normal colour buttons (e.g. Gnome Documents app with documents selected)
 /// * Firefox GTK3 uses dark text on background tabs
 /// * Header bar has "Busy" state I've never seen before and it makes Close and Menu buttons turn grey
 
@@ -214,8 +213,8 @@ headerbar button {
     }
   }
 }
-%titlebar,
-headerbar {
+%titlebar headerbar:not(.selection-mode),
+headerbar:not(.selection-mode) {
   button {
     color: $fg_dark_color;
     background-image: linear-gradient(to bottom, $header_button_raised_gradient_color_a, $bg_dark_color);
