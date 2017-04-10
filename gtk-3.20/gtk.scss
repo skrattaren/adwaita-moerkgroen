@@ -425,19 +425,12 @@ placessidebar list {
 }
 menubar {
   background-color: $bg_dark_color;
-  // We should use the following line, but it breaks LibreOffice buttons
-  // on toolbars, so keep it dark here and revert it for menu items
-  //color: $menu_fg_dark_color;
-  color: $fg_color;
+  color: $menu_fg_dark_color;
   box-shadow: inset 0 -1px transparentize(black, 0.9);
   &:backdrop { 
     background-color: $bg_dark_color;
     color: $menu_fg_dark_color;
   }
-}
-// Fix the bad text colour we set for menubar to fix LibreOffice
-menuitem > label {
-  color: $menu_fg_dark_color;
 }
 menuitem:hover > label {
   color: $selected_bg_color
