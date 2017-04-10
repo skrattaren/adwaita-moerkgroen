@@ -4776,6 +4776,14 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_button_active_color_a shade(#3D3D3D, 0.85);
 @define-color wm_button_active_color_b shade(#3D3D3D, 0.89);
 @define-color wm_button_active_color_c shade(#3D3D3D, 0.9);
+/**************************
+ *                        *
+ * Adwaita Dark Overrides *
+ *                        *
+ *   And now do our own   *
+ *  overrides of styling! *
+ *                        *
+ **************************/
 *:disabled {
   -gtk-icon-effect: highlight; }
 
@@ -4946,27 +4954,18 @@ column-header .titlebar button.titlebutton:hover,
 .titlebar column-header button.titlebutton:hover {
   color: black; }
 
-entry, .linked.vertical > entry, .linked.vertical > entry:first-child, .linked.vertical > entry:last-child, spinbutton:not(.vertical) {
-  background-image: linear-gradient(to bottom, #F0F0F0);
+spinbutton:not(.vertical),
+entry {
   background-color: #F0F0F0; }
-  entry:focus, .linked.vertical > entry:focus, .linked.vertical > entry:first-child:focus, .linked.vertical > entry:last-child:focus, spinbutton:not(.vertical):focus {
-    background-image: linear-gradient(to bottom, #F0F0F0); }
-  entry:disabled, .linked.vertical > entry:disabled, .linked.vertical > entry:first-child:disabled, .linked.vertical > entry:last-child:disabled, spinbutton:not(.vertical):disabled {
-    background-image: linear-gradient(to bottom, #c6c6c6); }
-  entry:backdrop, .linked.vertical > entry:backdrop, .linked.vertical > entry:first-child:backdrop, .linked.vertical > entry:last-child:backdrop, spinbutton:not(.vertical):backdrop {
-    background-image: none;
+  spinbutton:disabled:not(.vertical),
+  entry:disabled {
+    background-color: #c6c6c6; }
+  spinbutton:backdrop:not(.vertical),
+  entry:backdrop {
     background-color: #ededed; }
-  entry:backdrop:disabled, .linked.vertical > entry:backdrop:disabled, .linked.vertical > entry:first-child:backdrop:disabled, .linked.vertical > entry:last-child:backdrop:disabled, spinbutton:not(.vertical):backdrop:disabled {
-    background-image: linear-gradient(to bottom, #c6c6c6); }
-
-.linked.vertical > spinbutton:not(:disabled):not(.vertical) + entry:not(:disabled), .linked.vertical > spinbutton:not(:disabled):not(.vertical) + spinbutton:not(:disabled):not(.vertical), .linked.vertical >
-entry:not(:disabled) + entry:not(:disabled), .linked.vertical >
-entry:not(:disabled) + spinbutton:not(:disabled):not(.vertical) {
-  background-image: linear-gradient(to bottom, #F0F0F0); }
-  .linked.vertical > spinbutton:not(:disabled):not(.vertical) + entry:not(:disabled):backdrop, .linked.vertical > spinbutton:not(:disabled):not(.vertical) + spinbutton:not(:disabled):backdrop:not(.vertical), .linked.vertical >
-  entry:not(:disabled) + entry:not(:disabled):backdrop, .linked.vertical >
-  entry:not(:disabled) + spinbutton:not(:disabled):backdrop:not(.vertical) {
-    background-image: linear-gradient(to bottom, #F0F0F0); }
+  spinbutton:backdrop:disabled:not(.vertical),
+  entry:backdrop:disabled {
+    background-color: #c6c6c6; }
 
 spinbutton:not(.vertical) button:hover {
   background-color: rgba(198, 198, 198, 0.4);

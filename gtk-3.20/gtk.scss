@@ -331,28 +331,12 @@ column-header .titlebar button.titlebutton,
   .titlebar column-header button.titlebutton:hover {
     color: $fg_color_emphasis; }
 
-entry, .linked.vertical > entry, .linked.vertical > entry:first-child, .linked.vertical > entry:last-child, spinbutton:not(.vertical) {
-  background-image: linear-gradient(to bottom, $text_input_color);
-  background-color: $text_input_color;
-  
-  &:focus { background-image: linear-gradient(to bottom, $text_input_color); }
-  &:disabled { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
-  &:backdrop { background-image: none; background-color: $backdrop_text_input_color; }
-  &:backdrop:disabled { background-image: linear-gradient(to bottom, $insensitive_bg_color); }
-}
 %entry,
 entry {
-  %entry_basic, & {
-  }
-  .linked.vertical > & {
-    &:not(:disabled) + entry:not(:disabled),
-    &:not(:disabled) + %entry:not(:disabled) {    
-      background-image: linear-gradient(to bottom, $text_input_color);
-      &:backdrop {
-        background-image: linear-gradient(to bottom, $text_input_color);
-      }
-    }
-  }
+  background-color: $text_input_color;
+  &:disabled { background-color: $insensitive_bg_color; }
+  &:backdrop { background-color: $backdrop_text_input_color; }
+  &:backdrop:disabled { background-color: $insensitive_bg_color; }
 }
 spinbutton:not(.vertical) button:hover {
   background-color: transparentize($bg_color,0.6);
