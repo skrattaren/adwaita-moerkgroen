@@ -7,7 +7,6 @@
 
 /// TODO:
 /// * Firefox GTK3 defaults to grey page background (".background" CSS rule)
-/// * Geany scrollbar disappears when unfocused
 
 
 $variant: 'light';
@@ -54,6 +53,8 @@ $backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
 $backdrop_sidebar_bg_color: darken($backdrop_bg_color,5%);
 $backdrop_menu_color: $backdrop_bg_color;
 
+$scrollbar_slider_active_color: $selected_bg_color;
+$backdrop_scrollbar_slider_color: mix($backdrop_fg_color, $backdrop_bg_color, 50%);
 $backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%);
 
 

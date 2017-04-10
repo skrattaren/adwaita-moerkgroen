@@ -2610,9 +2610,9 @@ scrollbar {
     scrollbar slider:hover {
       background-color: #535859; }
     scrollbar slider:hover:active {
-      background-color: #2a76c6; }
+      background-color: #5E7F3E; }
     scrollbar slider:backdrop {
-      background-color: #c3c4c4; }
+      background-color: #9a9a9a; }
     scrollbar slider:disabled {
       background-color: transparent; }
   scrollbar.fine-tune slider {
@@ -2687,7 +2687,7 @@ scrollbar {
       box-shadow: inset 0 1px rgba(255, 255, 255, 0);
       text-shadow: none;
       -gtk-icon-shadow: none;
-      color: #2a76c6; }
+      color: #5E7F3E; }
     scrollbar button:disabled {
       border-color: transparent;
       background-color: transparent;
@@ -2703,7 +2703,7 @@ scrollbar {
       box-shadow: inset 0 1px rgba(255, 255, 255, 0);
       text-shadow: none;
       -gtk-icon-shadow: none;
-      color: #c3c4c4; }
+      color: #9a9a9a; }
       scrollbar button:backdrop:disabled {
         border-color: transparent;
         background-color: transparent;
@@ -2711,7 +2711,7 @@ scrollbar {
         box-shadow: inset 0 1px rgba(255, 255, 255, 0);
         text-shadow: none;
         -gtk-icon-shadow: none;
-        color: rgba(195, 196, 196, 0.2); }
+        color: rgba(154, 154, 154, 0.2); }
   scrollbar.vertical button.down {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
   scrollbar.vertical button.up {
