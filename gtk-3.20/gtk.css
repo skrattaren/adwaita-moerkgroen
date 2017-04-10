@@ -4766,6 +4766,7 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_button_active_color_b shade(#C6C6C6, 0.89);
 @define-color wm_button_active_color_c shade(#C6C6C6, 0.9);
 @define-color content_view_bg #C6C6C6;
+@define-color theme_base_color #eeeeee;
 @define-color wm_title #3D3D3D;
 @define-color wm_unfocused_title #3D3D3D;
 @define-color wm_highlight shade(#3D3D3D, 1.03);

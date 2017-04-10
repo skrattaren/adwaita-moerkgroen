@@ -95,6 +95,7 @@ $transparent_outline: #383436;
 @import 'colors-public';
 
 //Override some exported colours
+@define-color theme_base_color #eeeeee;
 @define-color wm_title #{"" + $bg_dark_color};
 @define-color wm_unfocused_title #{"" + $bg_dark_color};
 @define-color wm_highlight shade(#{"" + $bg_dark_color}, 1.03);
