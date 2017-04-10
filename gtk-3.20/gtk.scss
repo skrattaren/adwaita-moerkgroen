@@ -109,7 +109,23 @@ $transparent_outline: #383436;
 @define-color wm_button_active_color_c shade(#{$bg_dark_color}, 0.9);
 
 
-// And now do our own overrides of styling
+
+
+
+
+
+/**************************
+ *                        *
+ * Adwaita Dark Overrides *
+ *                        *
+ *   And now do our own   *
+ *  overrides of styling! *
+ *                        *
+ **************************/
+
+
+
+ 
 *:disabled {
   -gtk-icon-effect: highlight;
 }
