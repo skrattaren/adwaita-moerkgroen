@@ -7,7 +7,6 @@
 
 /// TODO:
 /// * Firefox GTK3 uses dark text on background tabs
-/// * Header bar has "Busy" state I've never seen before and it makes Close and Menu buttons turn grey
 
 
 $variant: 'light';
@@ -301,9 +300,6 @@ headerbar:not(.selection-mode) {
       background-image: none;
       border-color: $header_button_border;
       box-shadow: 0 1px $header_button_raised_gradient_color_a;
-
-      &:active,
-      &:checked { @include button(insensitive-active, $header_button_raised_gradient_color_a, $fg_dark_color); }
     }
 
     &:drop(active) {
