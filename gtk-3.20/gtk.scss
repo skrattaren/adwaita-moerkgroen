@@ -8,6 +8,8 @@
 /// TODO:
 /// * Firefox GTK3 defaults to grey page background (".background" CSS rule)
 ///    - https://bugzilla.mozilla.org/show_bug.cgi?id=1268618
+///    - Can't fudge this because Synapse uses the background colour and
+///      seems to create its own gradient from it
 /// * Package Updater header bar button goes light grey when in background and activated
 
 
