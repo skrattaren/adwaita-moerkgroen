@@ -4778,6 +4778,10 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_button_active_color_a shade(#3D3D3D, 0.85);
 @define-color wm_button_active_color_b shade(#3D3D3D, 0.89);
 @define-color wm_button_active_color_c shade(#3D3D3D, 0.9);
+@define-color wm_button_border #303030;
+@define-color button_emphasis_a #707070;
+@define-color button_emphasis_b #646464;
+@define-color button_emphasis_c #575757;
 /**************************
  *                        *
  * Adwaita Dark Overrides *
