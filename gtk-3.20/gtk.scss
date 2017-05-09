@@ -10,7 +10,6 @@
 ///    - https://bugzilla.mozilla.org/show_bug.cgi?id=1268618
 ///    - Can't fudge this because Synapse uses the background colour and
 ///      seems to create its own gradient from it
-/// * Package Updater header bar button goes light grey when in background and activated
 
 
 $variant: 'light';
@@ -337,10 +336,14 @@ headerbar:not(.selection-mode) {
         @include button(backdrop, $selected_bg_color, white);
 
         &:active,
-        &:checked { @include button(backdrop-active, $selected_bg_color, white); }
+        &:checked { @include button(backdrop-active, $selected_bg_color, $insensitive_dark_fg_color); }
 
-        &:disabled {
-          @include button(backdrop-insensitive);
+        &:disabled, &:disabled label {
+          color: $insensitive_dark_fg_color;
+          background-color: $bg_dark_color;
+          background-image: none;
+          border-color: $header_button_border;
+          box-shadow: none;
 
           &:active,
           &:checked { @include button(backdrop-insensitive-active, $selected_bg_color, white); }

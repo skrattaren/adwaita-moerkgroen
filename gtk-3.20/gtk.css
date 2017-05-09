@@ -4994,34 +4994,38 @@ headerbar:not(.selection-mode) button {
         headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:active,
         headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked label,
         headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:checked {
-          color: #dee2d9; }
-      .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled,
+          color: #83877e; }
+      .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label,
       headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled,
-      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled {
-        border-color: #828282;
-        background-image: image(#c6c6c6);
-        text-shadow: none;
-        -gtk-icon-shadow: none;
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
-        .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled,
-        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label,
-        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled,
-        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label,
-        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled {
-          color: #a0a0a0; }
-        .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked,
+      headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label,
+      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled,
+      headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label {
+        color: #8d8d8d;
+        background-color: #3D3D3D;
+        background-image: none;
+        border-color: #303030;
+        box-shadow: none; }
+        .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:checked, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:active, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:checked,
         headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active,
         headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:active,
+        headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:checked,
         headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active,
-        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked {
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:active,
+        headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:checked {
           border-color: #5a7043;
           background-image: image(#5a7043);
           box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
-          .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked label,
+          .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:checked label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:active label, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:checked label,
           headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:active label,
           headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled:checked label,
+          headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:active label,
+          headerbar:not(.selection-mode) button.suggested-action:backdrop:disabled label:checked label,
           headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:active label,
-          headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked label {
+          headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled:checked label,
+          headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:active label,
+          headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled label:checked label {
             color: #94a285; }
     .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:disabled, .titlebar:not(headerbar) headerbar:not(.selection-mode) button.suggested-action.flat:backdrop:disabled,
     headerbar:not(.selection-mode) button.suggested-action.flat:backdrop,
