@@ -35,6 +35,7 @@ $top_hilight: $borders_edge;
 $popover_bg_color: $bg_color;
 $popover_hover_color: lighten($bg_color, 5%);
 $menu_color: $bg_color;
+$destructive_color: darken($destructive_color, 15%);
 
 $scrollbar_bg_color: darken($bg_color, 7%);
 
@@ -99,7 +100,7 @@ $transparent_outline: #383436;
 @import 'colors-public';
 
 //Override some exported colours
-@define-color theme_base_color #eeeeee;
+@define-color theme_base_color #{"" + $base_color};
 @define-color wm_title #{"" + $bg_dark_color};
 @define-color wm_unfocused_title #{"" + $bg_dark_color};
 @define-color wm_highlight shade(#{"" + $bg_dark_color}, 1.03);
