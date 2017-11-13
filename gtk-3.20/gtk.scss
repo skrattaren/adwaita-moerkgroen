@@ -11,8 +11,6 @@
 ///    - Can't fudge this because Synapse uses the background colour and
 ///      seems to create its own gradient from it
 /// * Chrome menus use highlight colour for background and foreground
-/// * Electron and Java (PyCharm) menus have black text on grey (plus
-///   ugly grey borders, but that might be unavoidable)
 
 $variant: 'light';
 
