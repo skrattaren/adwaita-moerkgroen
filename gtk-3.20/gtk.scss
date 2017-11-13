@@ -337,6 +337,7 @@ headerbar:not(.selection-mode) {
       &:backdrop,
       &.flat:backdrop {
         @include button(backdrop, $selected_bg_color, white);
+        border-color: $selected_bg_border;
 
         &:active,
         &:checked { @include button(backdrop-active, $selected_bg_color, $insensitive_dark_fg_color); }
