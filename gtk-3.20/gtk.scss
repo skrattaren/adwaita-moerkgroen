@@ -10,7 +10,6 @@
 ///    - https://bugzilla.mozilla.org/show_bug.cgi?id=1268618
 ///    - Can't fudge this because Synapse uses the background colour and
 ///      seems to create its own gradient from it
-/// * Chrome menus use highlight colour for background and foreground
 
 $variant: 'light';
 
@@ -484,9 +483,7 @@ menubar {
     color: $menu_fg_dark_color;
   }
 }
-menuitem:hover > label {
-  color: $selected_bg_color
-}
+
 // Make all menus dark - we mainly want the menu bar menus dark, but
 // Firefox and other non-standard apps use those colours for their
 // context menus as well, so be consistent.
