@@ -10,6 +10,14 @@
 ///    - https://bugzilla.mozilla.org/show_bug.cgi?id=1268618
 ///    - Can't fudge this because Synapse uses the background colour and
 ///      seems to create its own gradient from it
+/// * LibreOffice button-menus (e.g. "More numbering" under bullet styles) have green-on-green
+///   text on hover
+///
+/// Unresolvable issues:
+/// * Gnome Terminal uses #C6C6C6 for background
+///    - This is because it uses @theme_base_color, and that is our base colour.
+///      The only way to change it in the theme is to change the base colour, but
+///      that would affect anything that relies on the base colour.
 
 $variant: 'light';
 
