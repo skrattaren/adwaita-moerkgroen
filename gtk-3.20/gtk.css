@@ -2195,3 +2195,5 @@ notebook > header tab:checked.reorderable-page { border-color: #7a7a7a; backgrou
 notebook > header tab:checked.reorderable-page:hover { background-color: lightgray; }
 
 notebook > header tab:backdrop:checked.reorderable-page { background-color: #C6C6C6; }
+
+.emoji-section label { font-family: "Symbola"; font-weight: bold; font-size: 125%; }

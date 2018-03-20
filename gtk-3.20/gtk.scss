@@ -577,6 +577,13 @@ notebook {
   }
 }
 
+// Fix the category icons in the Emoji input box
+.emoji-section label {
+  font-family: "Symbola";
+  font-weight: bold;
+  font-size: 125%
+}
+
 // Import extra Nautilus CSS manually, because they only do this if
 // you're using Adwaita -
 // https://github.com/GNOME/nautilus/blob/gnome-3-24/src/nautilus-application.c#L1099-L1112
