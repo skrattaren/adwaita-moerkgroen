@@ -89,11 +89,11 @@
   transition: background-color 200ms;
 }
 .nautilus-window .path-bar-box.width-maximized {
-  border: 1px @borders solid;
+  border: 1px @wm_button_border solid;
   border-radius: 3px;
 }
 .nautilus-window .path-bar-box.width-maximized:not(:backdrop) {
-  background-color: @theme_bg_color;
+  background-color: @wm_bg_a;
 }
 
 /* Make the tags fit into the box */
