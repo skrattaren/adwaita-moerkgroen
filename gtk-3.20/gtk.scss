@@ -182,6 +182,12 @@ headerbar {
     button.titlebutton {
     }
   }
+
+  label {
+    &, &:backdrop {
+      color: $fg_dark_color;
+    }
+  }
 }
 
 headerbar {
@@ -225,7 +231,7 @@ headerbar {
 headerbar button {
   &, &:backdrop {
     &, &:checked {
-      &, & label {
+      &, & label, &label:backdrop {
         color: $fg_dark_color;
       }
     }
@@ -311,7 +317,7 @@ headerbar:not(.selection-mode) {
         }
     }
 
-    &.flat { &:backdrop, &:disabled, &:backdrop:disabled { }}
+    &.flat { &:backdrop, &:disabled, &:backdrop:disabled { } }
 
     &:disabled, &.suggested-action:disabled {
       color: $insensitive_dark_fg_color;
@@ -583,6 +589,23 @@ notebook {
   font-weight: bold;
   font-size: 125%
 }
+
+
+// GTK 3.24 updates
+headerbar .background {
+  background: lighten($bg_dark_color, 5%);
+  color: $fg_dark_color;
+  
+  &:backdrop {
+    background: transparent none;
+    color: $fg_dark_color;
+  }
+}
+
+headerbar frame > border, headerbar .frame,
+headerbar frame > border:backdrop, headerbar .frame:backdrop
+{ border-color: $header_button_border; }
+
 
 // Import extra Nautilus CSS manually, because they only do this if
 // you're using Adwaita -
