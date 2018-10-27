@@ -1,3 +1,5 @@
+/* Based on https://github.com/GNOME/nautilus/tree/gnome-3.30/src/resources/css */
+
 .nautilus-window,
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
@@ -61,6 +63,64 @@
   animation-iteration-count: 3;
 }
 
+.disclosure-button {
+  padding: 4px;
+}
+
+/* Path bar */
+
+.nautilus-window .path-bar button, .nautilus-window .path-bar button:checked, .nautilus-window .path-bar button:active, .nautilus-window .path-bar button:hover,
+.nautilus-window .path-bar button:backdrop, .nautilus-window .path-bar button:backdrop:checked, .nautilus-window .path-bar button:backdrop:active, .nautilus-window .path-bar button:backdrop:hover
+ { /* undecorate the buttons */
+  background-image: none;
+  background-color: transparent;
+  border-radius: 0;
+  border-width: 0px;
+  margin: 0px;
+  box-shadow: none;
+}
+
+.nautilus-window .path-bar button:not(:checked) image { opacity: 0.8; } /* dim the icon when not checked */
+
+.nautilus-window .path-bar button:not(:backdrop):hover { box-shadow: inset 0 -3px @borders; }
+
+.nautilus-window .path-bar-box {
+  transition: border 200ms;
+  transition: background-color 200ms;
+}
+.nautilus-window .path-bar-box.width-maximized {
+  border: 1px @borders solid;
+  border-radius: 3px;
+}
+.nautilus-window .path-bar-box.width-maximized:not(:backdrop) {
+  background-color: @theme_bg_color;
+}
+
+/* Make the tags fit into the box */
+entry.search > * {
+  margin: 5px;
+}
+
+/* Sidebar */
+
+.sidebar-row:selected {
+    background: mix(@theme_bg_color, @theme_fg_color, 0.07);
+}
+
+.sidebar-row:selected,
+.sidebar-row:selected label {
+    color: mix(@theme_fg_color, @theme_text_color, 0.5);
+}
+
+.sidebar-row:selected:backdrop {
+    background: mix(@theme_unfocused_bg_color, @theme_unfocused_fg_color, 0.07);
+}
+
+.sidebar-row:selected:backdrop,
+.sidebar-row:selected:backdrop label {
+    color: mix(@theme_unfocused_fg_color, @theme_unfocused_text_color, 0.15);
+}
+
 /* Floating status bar */
 .floating-bar {
   padding: 1px;
@@ -105,21 +165,39 @@
 .disk-space-display.unknown {
     background-color: @disk_space_unknown;
     border-color: shade(@disk_space_unknown, 0.7);
+    color: @disk_space_unknown;
+}
+.disk-space-display.unknown.border {
+    color: shade(@disk_space_unknown, 0.7);
 }
 
 .disk-space-display.used {
     background-color: @disk_space_used;
     border-color: shade(@disk_space_used, 0.7);
+    color: @disk_space_used;
+}
+.disk-space-display.used.border {
+    color: shade(@disk_space_used, 0.7);
 }
 
 .disk-space-display.free {
     background-color: @disk_space_free;
     border-color: shade(@disk_space_free, 0.7);
+    color: @disk_space_free;
+}
+.disk-space-display.free.border {
+    color: shade(@disk_space_free, 0.7);
 }
 
 /* View */
 .nautilus-list-view .view {
     border-bottom: 1px solid @theme_bg_color;
+}
+
+.search-information {
+  background-color: @theme_selected_bg_color;
+  color:@theme_selected_fg_color;
+  padding:2px;
 }
 
 /* Hide superfluous treeview drop target indication */
@@ -184,4 +262,28 @@ searchbar { border-top: 1px solid @borders; }
 .conflict-row:selected {
   background: @theme_selected_bg_color;
   color: @theme_selected_fg_color;
+}
+
+/* Icon view */
+flowboxchild:selected {
+  background-color:transparent;
+}
+
+.icon-background {
+  background-color:black;
+  border-color:#4a90d9;
+  border-style:solid;
+  border-width:0px;
+}
+
+flowboxchild > .icon-item-background {
+  padding:4px;
+}
+flowboxchild:selected > .icon-item-background {
+  padding:4px;
+  background-color:#4a90d9;
+  border-color:#4a90d9;
+  border-style:solid;
+  border-width:0px;
+  border-radius:4px 4px 4px 4px;
 }
