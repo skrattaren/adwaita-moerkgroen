@@ -583,6 +583,9 @@ notebook {
   }
 }
 
+// Stop the disabled spin button being dark grey
+spinbutton:not(.vertical) button:backdrop:disabled { background: transparent none; }
+
 // Fix the category icons in the Emoji input box
 .emoji-section label {
   font-family: "Symbola";

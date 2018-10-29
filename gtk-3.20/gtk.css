@@ -2230,6 +2230,8 @@ notebook > header tab:checked.reorderable-page:hover { background-color: lightgr
 
 notebook > header tab:backdrop:checked.reorderable-page { background-color: #C6C6C6; }
 
+spinbutton:not(.vertical) button:backdrop:disabled { background: transparent none; }
+
 .emoji-section label { font-family: "Symbola"; font-weight: bold; font-size: 125%; }
 
 headerbar .background { background: #4a4a4a; color: #dddddd; }
