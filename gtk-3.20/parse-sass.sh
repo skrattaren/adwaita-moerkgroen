@@ -12,3 +12,4 @@ echo Generating the css...
 #sassc $SASSC_OPT gtk-contained.scss gtk-contained.css
 #sassc $SASSC_OPT gtk-contained-dark.scss gtk-contained-dark.css
 sassc $SASSC_OPT gtk.scss gtk.css
+sassc $SASSC_OPT gtk-dark.scss gtk-dark.css
